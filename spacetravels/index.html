@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:700&display=swap" rel="stylesheet">
+
+	<title>SpaceTravels</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Css-files -->
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel='stylesheet' href='css/style.css'>
+
+</head>
+
+<body>
+	
+	<header>
+		<div class="header__container container">
+			<nav class="menu">
+				<button class="menu-btn">
+					<div class="menu-btn__line--top"></div>
+					<div class="menu-btn__line--center"></div>
+					<div class="menu-btn__line--bottom"></div>
+				</button>
+				<ul class="menu__list">
+					<li class="menu__item"><a href="#spacesuit">spacesuit</a></li>
+					<li class="menu__item"><a href="#tours">tours</a></li>
+					<li class="menu__item"><a href="#astronauts">astronauts</a></li>
+					<li class="menu__item"><a href="#souvenirs">souvenirs</a></li>
+					<li class="menu__item"><a href="#parters">partners</a></li>
+				</ul>
+				<a href="../" class="menu__logo"><img src="img/logo.svg" alt="SpaceTravels">SpaceTravels</a>
+				<button class="menu__cart">
+					<svg viewBox="0 0 24 20" stroke="#fff" stroke-width="2" fill="none">
+						<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+						<circle r="2" cx="9" cy="17"/>
+						<circle r="2" cx="18" cy="17"/>
+					</svg>
+				</button>
+				<div class="menu__phone">1 234 567 89 00</div>
+			</nav>
+
+			<h1>Select your<br>amazing journay<br>to space</h1>
+			<span class="data">2029</span>
+		</div>
+
+		
+		<picture class="background">
+		    <source srcset="img/header/bg-md@1x.webp 1x,
+		                    img/header/bg-md@2x.webp 2x"
+		            media="(min-width: 625px)"
+		            type="image/webp">
+		    <source srcset="img/header/bg-md@1x.png 1x,
+		                    img/header/bg-md@2x.png 2x"
+		            media="(min-width: 625px)">
+		    <source srcset="img/header/bg@1x.webp 1x,
+		                    img/header/bg@2x.webp 2x"
+		            type="image/webp">
+		    <img src="img/header/bg@1x.png"
+		         srcset="img/header/bg@2x.png 2x"
+		         alt="background">    
+		</picture>
+	</header>
+
+	<section class="spacesuit" id="spacesuit">
+		<div class="spacesuit__container container">
+			<div class="text spacesuit__text">
+				<h2>The best spacesuit</h2>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+				<div class="buttons spacesuit__buttons">
+					<button class="btn">
+						buy for 1 600 $
+					</button>
+					<button class="btn btn-gray">
+						rent for 300 $
+					</button>
+				</div>
+			</div>
+			<picture class="spacesuit__image">
+			    <source
+			       srcset="img/spacesuit/400.webp 400w,
+			               img/spacesuit/800.webp 800w,
+			               img/spacesuit/1200.webp 1200w,
+			               img/spacesuit/1600.webp 1600w"
+			         type="image/webp">
+			    <img
+			          src="img/spacesuit/400.jpg" alt="The best spacesuit"
+			       srcset="img/spacesuit/400.jpg 400w,
+			               img/spacesuit/800.jpg 800w,
+			               img/spacesuit/1200.jpg 1200w,
+			               img/spacesuit/1600.jpg 1600w">
+			</picture>
+		</div>
+	</section>
+
+	<section class="tours" id="tours">
+		<div class="tours__container container">
+			<h2>Select your tour</h2>
+			<div class="tours__slider">
+				<div class="card">
+					<h4 class="card__title">Basic</h4>
+					<picture class="card__image">
+					    <source
+					       srcset="img/basic/400.webp 400w,
+					               img/basic/800.webp 800w,
+					               img/basic/1200.webp 1200w,
+					               img/basic/1600.webp 1600w"
+					         type="image/webp">
+					    <img
+					          src="img/basic/400.jpg" alt="Basic"
+					       srcset="img/basic/400.jpg 400w,
+					               img/basic/800.jpg 800w,
+					               img/basic/1200.jpg 1200w,
+					               img/basic/1600.jpg 1600w">
+					</picture>
+					<h4 class="card__duration">1 week in space</h4>
+					<ul class="card__list">
+						<li class="card__list__item">Brown spacesuit</li>
+						<li class="card__list__item">5 kg of things</li>
+						<li class="card__list__item">Flight preparation</li>
+					</ul>
+					<h2 class="card__price">900 000 $</h2>
+				</div>
+				<div class="card">
+					<h4 class="card__title">Premium</h4>
+					<picture class="card__image">
+					    <source
+					       srcset="img/premium/400.webp 400w,
+					               img/premium/800.webp 800w,
+					               img/premium/1200.webp 1200w,
+					               img/premium/1600.webp 1600w"
+					         type="image/webp">
+					    <img
+					          src="img/premium/400.jpg" alt="Premium"
+					       srcset="img/premium/400.jpg 400w,
+					               img/premium/800.jpg 800w,
+					               img/premium/1200.jpg 1200w,
+					               img/premium/1600.jpg 1600w">
+					</picture>
+					<h4 class="card__duration">2 week in space</h4>
+					<ul class="card__list">
+						<li class="card__list__item">White spacesuit</li>
+						<li class="card__list__item">10 kg of things</li>
+						<li class="card__list__item">Flight preparation</li>
+					</ul>
+					<h2 class="card__price">900 000 $</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="astronauts" id="astronauts">
+		<div class="astronauts__container container">
+			<h2>Astronauts</h2>
+			<div class="astronauts__slider">
+				<div class="astronaut">
+					<div class="astronaut__title">
+						<picture class="astronaut__image">
+							<source
+							   srcset="img/cristoforetti/175.webp 175w,
+							           img/cristoforetti/350.webp 350w,
+							           img/cristoforetti/700.webp 700w"
+							     type="image/webp">
+							<img
+							      src="img/cristoforetti/175.jpg" alt="Samantha Cristoforetti"
+							   srcset="img/cristoforetti/175.jpg 175w,
+							           img/cristoforetti/350.jpg 350w,
+							           img/cristoforetti/700.jpg 700w">
+						</picture>
+						<h4 class="astronaut__name">Samantha Cristoforetti</h4>
+					</div>
+					<p class="astronaut__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+					<div class="astronaut__slider">
+						<picture class="astronaut__slider__image">
+						    <source
+						       srcset="img/cristoforetti/first/400.webp 400w,
+						               img/cristoforetti/first/800.webp 800w,
+						               img/cristoforetti/first/1200.webp 1200w"
+						         type="image/webp">
+						    <img
+						          src="img/cristoforetti/first/400.jpg" alt="Samantha Cristoforetti"
+						       srcset="img/cristoforetti/first/400.jpg 400w,
+						               img/cristoforetti/first/800.jpg 800w,
+						               img/cristoforetti/first/1200.jpg 1200w">
+						</picture>
+						<picture class="astronaut__slider__image">
+						    <source
+						       srcset="img/cristoforetti/second/400.webp 400w,
+						               img/cristoforetti/second/800.webp 800w,
+						               img/cristoforetti/second/1200.webp 1200w"
+						         type="image/webp">
+						    <img
+						          src="img/cristoforetti/second/400.jpg" alt="Samantha Cristoforetti"
+						       srcset="img/cristoforetti/second/400.jpg 400w,
+						               img/cristoforetti/second/800.jpg 800w,
+						               img/cristoforetti/second/1200.jpg 1200w">
+						</picture>
+					</div>
+				</div>
+				<div class="astronaut">
+					<div class="astronaut__title">
+						<picture class="astronaut__image">
+							<source
+							   srcset="img/morgan/175.webp 175w,
+							           img/morgan/350.webp 350w,
+							           img/morgan/700.webp 700w"
+							     type="image/webp">
+							<img
+							      src="img/morgan/175.jpg" alt="Andrew Morgan"
+							   srcset="img/morgan/175.jpg 175w,
+							           img/morgan/350.jpg 350w,
+							           img/morgan/700.jpg 700w">
+						</picture>
+						<h4 class="astronaut__name">Andrew Morgan</h4>
+					</div>
+					<p class="astronaut__text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.</p>
+					<div class="astronaut__slider">
+						<picture class="astronaut__slider__image">
+						    <source
+						       srcset="img/morgan/first/400.webp 400w,
+						               img/morgan/first/800.webp 800w,
+						               img/morgan/first/1200.webp 1200w"
+						         type="image/webp">
+						    <img
+						          src="img/morgan/first/400.jpg" alt="Andrew Morgan"
+						       srcset="img/morgan/first/400.jpg 400w,
+						               img/morgan/first/800.jpg 800w,
+						               img/morgan/first/1200.jpg 1200w">
+						</picture>
+						<picture class="astronaut__slider__image">
+						    <source
+						       srcset="img/morgan/second/400.webp 400w,
+						               img/morgan/second/800.webp 800w,
+						               img/morgan/second/1200.webp 1200w"
+						         type="image/webp">
+						    <img
+						          src="img/morgan/second/400.jpg" alt="Andrew Morgan"
+						       srcset="img/morgan/second/400.jpg 400w,
+						               img/morgan/second/800.jpg 800w,
+						               img/morgan/second/1200.jpg 1200w">
+						</picture>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="souvenirs" id="souvenirs">
+		<div class="souvenirs__container container">
+			<h2>Souvenirs</h2>
+			<div class="products">
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>Magnet</p>
+						<h4 class="products__item__price">1 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/magnet/250.webp 250w,
+						           img/magnet/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/magnet/250.jpg" alt="Magnet"
+						   srcset="img/magnet/250.jpg 250w,
+						           img/magnet/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>Pillow</p>
+						<h4 class="products__item__price">3 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/pillow/250.webp 250w,
+						           img/pillow/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/pillow/250.jpg" alt="Magnet"
+						   srcset="img/pillow/250.jpg 250w,
+						           img/pillow/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>Cup</p>
+						<h4 class="products__item__price">4 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/cup/250.webp 250w,
+						           img/cup/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/cup/250.jpg" alt="Magnet"
+						   srcset="img/cup/250.jpg 250w,
+						           img/cup/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>Cap</p>
+						<h4 class="products__item__price">4 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/cap/250.webp 250w,
+						           img/cap/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/cap/250.jpg" alt="Magnet"
+						   srcset="img/cap/250.jpg 250w,
+						           img/cap/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>Black cap</p>
+						<h4 class="products__item__price">4 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/blackcap/250.webp 250w,
+						           img/blackcap/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/blackcap/250.jpg" alt="Magnet"
+						   srcset="img/blackcap/250.jpg 250w,
+						           img/blackcap/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+				<div class="products__item">
+					<div class="products__item__title">
+						<p>White cap</p>
+						<h4 class="products__item__price">4 $</h4>
+					</div>
+					<picture class="products__item__image">
+						<source
+						   srcset="img/whitecap/250.webp 250w,
+						           img/whitecap/500.webp 500w"
+						     type="image/webp">
+						<img
+						      src="img/whitecap/250.jpg" alt="Magnet"
+						   srcset="img/whitecap/250.jpg 250w,
+						           img/whitecap/500.jpg 500w">
+					</picture>
+					<div class="products__item__cart">
+						<svg viewBox="0 0 24 20" stroke="#D4CE34" stroke-width="2" fill="none">
+							<polyline points="1,1 4,1 7,13 20,13 23,4 8,4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+							<circle r="2" cx="9" cy="17"/>
+							<circle r="2" cx="18" cy="17"/>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="parters" id="parters">
+		<div class="partners__container container">
+			<h2>Our partners</h2>
+			<div class="company">
+				<img src="img/nasa.png" alt="NASA" class="company__item">
+				<img src="img/roscosmos.png" alt="RosCosmos" class="company__item">
+				<img src="img/cnes.jpg" alt="CNES" class="company__item">
+			</div>
+		</div>
+	</section>
+	<footer>
+
+		<div class="footer__container container">
+			<div class="footer__title">
+				<h2>SpaceTravels</h2>
+				<h4>1 234 567 89 00</h4>
+			</div>
+			<ul class="footer__links">
+				<li class="footer__links__item footer__list__item"><a href="#spacesuit">spacesuit</a></li>
+				<li class="footer__links__item footer__list__item"><a href="#tours">tours</a></li>
+				<li class="footer__links__item footer__list__item"><a href="#astronauts">astronauts</a></li>
+				<li class="footer__links__item footer__list__item"><a href="#souvenirs">souvenirs</a></li>
+				<li class="footer__links__item footer__list__item"><a href="#parters">partners</a></li>
+			</ul>
+			<ul class="footer__contact">
+				<li class="footer__contact__item footer__list__item"><a href="#">facebook</a></li>
+				<li class="footer__contact__item footer__list__item"><a href="#">twitter</a></li>
+				<li class="footer__contact__item footer__list__item"><a href="#">pinterest</a></li>
+				<li class="footer__contact__item footer__list__item"><a href="#">tumbler</a></li>
+				<li class="footer__contact__item footer__list__item"><a href="#">instagram</a></li>
+			</ul>
+		</div>
+		<picture class="background">
+		    <source srcset="img/footer/bg-md@1x.webp 1x,
+		                    img/footer/bg-md@2x.webp 2x"
+		            media="(min-width: 625px)"
+		            type="image/webp">
+		    <source srcset="img/footer/bg-md@1x.png 1x,
+		                    img/footer/bg-md@2x.png 2x"
+		            media="(min-width: 625px)">
+		    <source srcset="img/footer/bg@1x.webp 1x,
+		                    img/footer/bg@2x.webp 2x"
+		            type="image/webp">
+		    <img src="img/footer/bg@1x.png"
+		         srcset="img/footer/bg@2x.png 2x"
+		         alt="background">    
+		</picture>
+	</footer>
+
+	<!-- Created by DelFy -->
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+	<script src='js/js.js'></script>
+</body>
+</html>

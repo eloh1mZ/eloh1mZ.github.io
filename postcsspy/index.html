@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+	<title>PostCss на Python</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">	
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Css-files -->
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	<link rel='stylesheet' href='css/style.css'>
+
+</head>
+
+<body>
+	
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<nav class="menu">
+					<a href="setup/#install">Настройка</a>
+					<a href="setup/#plugins">Плагины</a>
+					<a href="https://postcss.org/">PostCSS на JS</a>
+				</nav>
+				<div class="social">
+					<a href="https://twitter.com/postcss">Twitter</a>
+					<a href="https://gitter.im/postcss/postcss">Gitter</a>
+					<a href="https://github.com/D31Fy/PostCSSpy">Github</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main class="main" id="main">
+		<picture class="background">
+			<img src="img/main-bg.jpg"
+				 alt="background">
+		</picture>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 content">
+					<img src="img/logo.svg" alt="Logo" class="logo">
+					<h1>PostCSSpy</h1>
+					<h2>Инструмент для преобразования CSS на Python</h2>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<section class="customProperties" id="customProperties">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="title d-flex">
+						<img src="img/customProperties.svg" alt="Logo">
+						<h3>Используйте CSS переменные уже сейчас</h3>
+					</div>
+					<p>Плагин <a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/customProperties.py">customProperties</a> позволяет изпользовать переменные css в проекте, не думая о поддержке в IE</p>
+				</div>
+				<div class="col-md-6">
+					<div class="input">
+						<span class="colorRed">:root</span> {<br/>&emsp;&emsp;<span class="bgYellow">--accentColor</span>: <span class="colorAccent">#01a5a5</span>;<br/>}<br/>
+
+					   	<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="bgYellow">var(--accentColor)</span><br/>}
+					</div>
+					<div class="output">
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorAccent">#01a5a5</span><br/>}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="importConcatinate" id="importConcatinate">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="title d-flex">
+						<img src="img/importConcatinate.svg" alt="Logo">
+						<h3>Импортируйте стили в&nbsp;главный файл</h3>
+					</div>
+					<p>Плагин <a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/importConcatinate.py">importConcatinate</a> позволяет разделять таблицу стилей на файлы и их импортировать в один файл</p>
+				</div>
+				<div class="col-md-6">
+					<div class="input">
+						<span class="colorViolet">@import</span>: <span class="colorBlue">url</span>('<span class="colorGreen">variables.css</span>')<br/>
+
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: var(--accentColor)<br/>}
+					</div>
+					<div class="output">
+						<span class="colorRed">:root</span> {<br/>&emsp;&emsp;<span class="colorYellow">--accentColor</span>: <span class="colorAccent">#01a5a5</span><br/>}<br/>
+
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: var(--accentColor)<br/>}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="grayFunction" id="grayFunction">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="title d-flex">
+						<img src="img/grayFunction.svg" alt="Logo">
+						<h3>Используйте функции для&nbsp;написания черного и серого цветов проще</h3>
+					</div>
+					<p>Плагин <a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/grayFunction.py">grayFunction</a> добавляет две функции gray() и black().<br/>Функция gray() создает серый цвет из двух символов.<br/>Функция black() позволяет использовать только прозрачнойсть для написания полупрозрачного черного цвета</p>
+				</div>
+				<div class="col-md-6">
+					<div class="input">
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: gray(80);<br/>
+						&emsp;&emsp;<span class="colorYellow">background-color</span>: black(0.5)<br/>}
+					</div>
+					<div class="output">
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>;<br/>
+						&emsp;&emsp;<span class="colorYellow">background-color</span>: rgba(0, 0, 0, 0.5)<br/>}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cssMinify" id="cssMinify">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="title d-flex">
+						<img src="img/cssMinify.svg" alt="Logo">
+						<h3>Минифицируйте свой CSS-код</h3>
+					</div>
+					<p>Плагин <a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/cssMinify.py">cssMinify</a> уменьшает CSS-код, удаляя все переносы строк и лишние пробелы</p>
+				</div>
+				<div class="col-md-6">
+					<div class="input">
+						<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>;<br/>}
+					</div>
+					<div class="output">
+						<span class="colorRed">.block</span> {<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="navigation" id="navigation">
+		<div class="container">
+			<div class="row">
+				<nav class="d-flex">
+					<a href="setup/">Настройка</a>
+					<a href="setup/#plugins">Плагины</a>
+					<a href="https://postcss.org/">PostCSS на JS</a>
+					<!-- <a href="#"></a> -->
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer">
+		<div class="container">
+			<div class="row">
+				<p>PostCSS на JS создан <a href="https://sitnik.ru">ai</a>. <a href="../">DelFy</a> лишь изменил некоторые плагины на язык Python, чтобы использовать PostCSS без установки и настройки сборщиков проекта.</p>
+				</p>
+				<a href="https://postcss.org/">PostCSS на JS</a>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Created by DelFy -->
+	<script src='js/js.js'></script>
+	<script>
+		objectFitImages();
+	</script>
+
+</body>
+</html>

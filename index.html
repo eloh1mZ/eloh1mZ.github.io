@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>eloh1mZ</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="pictures/favicon.ico" type="image/x-icon">	
+	<link rel="icon" href="pictures/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/cmd.css">
+	<link rel="stylesheet" href="css/calc.css">
+</head>
+<body>
+
+
+	<div class="row" style="align-items: flex-start; justify-content: space-between;">
+		<div class="column">
+			<div onclick="cmd.show()" class="label column cmdLabel"><img src="pictures/logo.svg" alt=""><span>eloh1mZ.exe</span></div>
+			<div onclick="calc.show(); calc.input = document.querySelector('.calc__input input'); calc.input.value = 0;" class="label column calcLabel"><img src="pictures/calc.svg" alt=""><span>calc.exe</span></div>
+		</div>
+		<div class="row" style="align-items: flex-start; justify-content: space-between;">
+			<div class="column">
+				<a href="flockapp/" class="label column" style="background-color: rgba(13, 248, 200, 0.5); color: #fff"><img src="flockapp/img/logo.svg" alt=""><span>FlockApp</span></a>
+			</div>
+			<div class="column">
+				<a href="postcsspy/" class="label column"><img src="postcsspy/img/logo.svg" alt=""><span>PostCSSpy</span></a>
+				<a href="motovida/" class="label column" style="background-color: rgba(55, 94, 230, 0.5); color: #fff"><img src="motovida/img/logo.png" alt=""><span>Motovida</span></a>
+			</div>
+			<div class="column">
+				<a href="eryzer/" class="label column"><img src="eryzer/img/logo.svg" alt=""><span>eryzer</span></a>
+				<a href="utours/" class="label column"><img src="utours/img/logo.png" alt=""><span>utours</span></a>
+				<a href="spacetravels/" class="label column" style="background-color: rgba(0, 0, 0, 0.5); color: #fff"><img src="spacetravels/img/logo.svg" alt=""><span>SpaceTravels</span></a>
+			</div>
+		</div>
+	</div>
+	<div id="panel" class="row">
+	</div>
+
+
+	<picture class="background">
+		<source
+		   srcset="pictures/0/400.webp 400w,
+				   pictures/0/800.webp 800w,
+				   pictures/0/1200.webp 1200w"
+			 type="image/webp">
+		<img
+			  src="pictures/0/400.jpg" alt=""
+		   srcset="pictures/0/400.jpg 400w,
+				   pictures/0/800.jpg 800w,
+				   pictures/0/1200.jpg 1200w">
+	</picture>
+
+	<script src="js/js.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/cmd.js"></script>
+	<script src="js/calc.js"></script>
+
+	<script></script>
+
+
+</body>
+</html>

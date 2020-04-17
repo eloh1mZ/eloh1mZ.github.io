@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+	<title>PostCss на Python</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap" rel="stylesheet">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">	
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Css-files -->
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	<link rel='stylesheet' href='css/style.css'>
+
+</head>
+
+<body>
+	
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+				<nav class="menu">
+					<a href="../postcsspy.html">Главная</a>
+					<a href="#plugins">Плагины</a>
+					<a href="https://postcss.org/">PostCSS на JS</a>
+				</nav>
+				<div class="social">
+					<a href="https://twitter.com/postcss">Twitter</a>
+					<a href="https://gitter.im/postcss/postcss">Gitter</a>
+					<a href="https://github.com/D31Fy/PostCSSpy">Github</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="install" id="install">
+		<div class="container">
+			<div class="row">
+				<h2>Установка</h2>
+				<p>Вы можете начать использувать PostCSSpy, выполнив несколько простых действий:</p>
+				<ul>
+					<a href="https://www.python.org/"><li>Установить Python 3.x(рекомендуестся 3.7)</li></a>
+					<a href=""><li><a href="https://github.com/D31Fy/PostCSSpy">Скачать и разархивировать файлы</a> в папку вашего проекта</li></a>
+					<li>Настроить пути в settings.py:
+						<div class="grid">
+							<div>9</div><div><span class="colorBlue">src</span> = '<span class="colorGreen">src/css/</span>'</div>
+							<div>10</div><div><span class="colorBlue">dist</span> = '<span class="colorGreen">dist/css/</span>'</div>
+							<div>11</div><div><span class="colorBlue">FileName</span> = '<span class="colorGreen">style.css</span>'</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="plugins" id="plugins">
+		<div class="container">
+			<div class="row">
+				<h2>Плагины</h2>
+				<p>Установка плагинов заключается в:<br/>&emsp;&emsp;копировании файла с плагином в папку plugins;<br/>&emsp;&emsp;вставке текста с первой таблицы на 3 или более строку;<br/>&emsp;&emsp;вставке текста из второй таблицы в функцию Functions()<br/><br/><span class="colorRed">ВНИМАНИЕ</span> Аргументы только первой функции должны быть (src, dist, FileName). Остальные - (dist, dist, FileName)</p>
+				<div class="customProperties row">
+					<h3 class="col-12"><a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/customProperties.py">customProperties ⇩</a></h3>
+					<div class="grids col-md-6">
+						<div class="grid">
+							<div>>3</div><div><span class="colorViolet">from</span> <span class="colorBlue">plugins.customProperties</span> <span class="colorViolet">import</span> <span class="colorRed">*</span></div>
+						</div>
+						<div class="grid">
+							<div></div><div><span class="colorOrange">def</span> <span class="colorBlue">Functions()</span>:<br/></div>
+							<div></div><div>&emsp;&emsp;<span class="colorBlue">customProperties(src, dist, FileName)</span></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input">
+							<span class="colorRed">:root</span> {<br/>&emsp;&emsp;<span class="bgYellow">--accentColor</span>: <span class="colorAccent">#01a5a5</span>;<br/>}<br/>
+
+						   	<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="bgYellow">var(--accentColor)</span><br/>}
+						</div>
+						<div class="output">
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorAccent">#01a5a5</span><br/>}
+						</div>
+					</div>
+				</div>
+				<div class="importConcatinate row">
+					<h3 class="col-12"><a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/importConcatinate.py">importConcatinate ⇩</a></h3>
+					<div class="grids col-md-6">
+						<div class="grid">
+							<div>>3</div><div><span class="colorViolet">from</span> <span class="colorBlue">plugins.importConcatinate</span> <span class="colorViolet">import</span> <span class="colorRed">*</span></div>
+						</div>
+						<div class="grid">
+							<div></div><div><span class="colorOrange">def</span> <span class="colorBlue">Functions()</span>:<br/></div>
+							<div></div><div>&emsp;&emsp;<span class="colorBlue">importConcatinate(src, dist, FileName)</span></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input">
+							<span class="colorViolet">@import</span>: <span class="colorBlue">url</span>('<span class="colorGreen">variables.css</span>')<br/>
+
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: var(--accentColor)<br/>}
+						</div>
+						<div class="output">
+							<span class="colorRed">:root</span> {<br/>&emsp;&emsp;<span class="colorYellow">--accentColor</span>: <span class="colorAccent">#01a5a5</span><br/>}<br/>
+
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: var(--accentColor)<br/>}
+						</div>
+					</div>
+				</div>
+				<div class="grayFunction row">
+					<h3 class="col-12"><a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/grayFunction.py">grayFunction ⇩</a></h3>
+					<div class="grids col-md-6">
+						<div class="grid">
+							<div>>3</div><div><span class="colorViolet">from</span> <span class="colorBlue">plugins.grayFunction</span> <span class="colorViolet">import</span> <span class="colorRed">*</span></div>
+						</div>
+						<div class="grid">
+							<div></div><div><span class="colorOrange">def</span> <span class="colorBlue">Functions()</span>:<br/></div>
+							<div></div><div>&emsp;&emsp;<span class="colorBlue">grayFunction(src, dist, FileName)</span></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input">
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: gray(80);<br/>
+							&emsp;&emsp;<span class="colorYellow">background-color</span>: black(0.5)<br/>}
+						</div>
+						<div class="output">
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>;<br/>
+							&emsp;&emsp;<span class="colorYellow">background-color</span>: rgba(0, 0, 0, 0.5)<br/>}
+						</div>
+					</div>
+				</div>
+				<div class="systemUI row">
+					<h3 class="col-12"><a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/systemUI.py">systemUI ⇩</a></h3>
+					<div class="grids col-md-6">
+						<div class="grid">
+							<div>>3</div><div><span class="colorViolet">from</span> <span class="colorBlue">plugins.systemUI</span> <span class="colorViolet">import</span> <span class="colorRed">*</span></div>
+						</div>
+						<div class="grid">
+							<div></div><div><span class="colorOrange">def</span> <span class="colorBlue">Functions()</span>:<br/></div>
+							<div></div><div>&emsp;&emsp;<span class="colorBlue">systemUI(src, dist, FileName)</span></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input">
+							<span class="colorRed">body</span> {<br/>&emsp;&emsp;<span class="colorYellow">font-family</span>: '<span class="colorGreen">systemUI</span>';<br/>}
+						</div>
+						<div class="output">
+							<span class="colorRed">body</span> {<br/>&emsp;&emsp;<span class="colorYellow">font-family</span>: <span class="colorGreen">-apple-system, BlinkMacSystemFont, 'SegoeUI', Roboto, Oxygen-Sans, Ubuntu,Cantarell, 'Helvetica Neue', sans-serif</span>;<br/>}
+						</div>
+					</div>
+				</div>
+				<div class="cssMinify row">
+					<h3 class="col-12"><a href="https://github.com/D31Fy/PostCSSpy/blob/master/plugins/cssMinify.py">cssMinify ⇩</a></h3>
+					<div class="grids col-md-6">
+						<div class="grid">
+							<div>>3</div><div><span class="colorViolet">from</span> <span class="colorBlue">plugins.cssMinify</span> <span class="colorViolet">import</span> <span class="colorRed">*</span></div>
+						</div>
+						<div class="grid">
+							<div></div><div><span class="colorOrange">def</span> <span class="colorBlue">Functions()</span>:<br/></div>
+							<div></div><div>&emsp;&emsp;<span class="colorBlue">cssMinify(src, dist, FileName)</span></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="input">
+							<span class="colorRed">.block</span> {<br/>&emsp;&emsp;<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>;<br/>}
+						</div>
+						<div class="output">
+							<span class="colorRed">.block</span> {<span class="colorYellow">color</span>: <span class="colorGray">#808080</span>}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="footer">
+		<div class="container">
+			<div class="row">
+				<p>PostCSS на JS создан <a href="https://sitnik.ru">ai</a>. <a href="../">DelFy</a> лишь изменил некоторые плагины на язык Python, чтобы использовать PostCSS без установки и настройки сборщиков проекта.</p>
+				</p>
+				<a href="https://postcss.org/">PostCSS на JS</a>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Created by DelFy -->
+	<script src='js/js.js'></script>
+	<script>
+		objectFitImages();
+	</script>
+
+</body>
+</html>

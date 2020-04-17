@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<meta http-equiv='X-UA-Compatible' content='ie=edge'>
+
+	<title>utours.</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Habibi&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+	
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+	<!-- Css-files -->
+	<link rel='stylesheet' href='css/bootstrap.min.css'>
+	<link rel='stylesheet' href='css/style.css'>
+
+</head>
+
+<body>
+
+	<header>
+		<div class="container">
+			<div class="row">
+				<a href="../" class="logo">utours.</a>
+				<button class="menu-btn">menu</button>
+				<nav class="menu d-flex">
+					<a href="#">About us</a>
+					<a href="#">Our tours</a>
+					<a href="#">Hotels</a>
+					<a href="#">Contact us</a>
+					<a href="#">Comments</a>
+					<a href="#call">Call us <span>:7 912 923 32 32 </span><i class="fa fa-chevron-down"></i></a>
+				</nav>
+				<button>Register & login</button>
+			</div>
+		</div>
+	</header>
+
+	<main id="main">
+		<picture class="background">
+			<source srcset="img/main-bg-md.webp"
+			        media="(max-width: 768.5px)"
+			        type="image/webp">
+			<source srcset="img/main-bg-md.jpg"
+			        media="(max-width: 768.5px)">
+			<source srcset="img/main-bg.webp"
+					type="image/webp">
+			<img src="img/main-bg.jpg"
+				 alt="Background">
+		</picture>
+		<div class="container">
+			<div class="row">
+				<div class="text col-lg-6 col-md-7 col-sm-9">
+					<h1>Egypt tours.</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus suscipit, ante ut viverra egestas, augue urna commodo tortor, eget ultricies elit diam a sapien. Nunc sit amet massa leo. Nam feugiat at augue a iaculis. Morbi malesuada diam mauris. Curabitur id consequat felis. Aliquam luctus finibus pulvinar. Donec nec condimentum lorem. Quisque pulvinar viverra nisl quis finibus. Suspendisse potenti. </p>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<div class="ticket">
+		<div class="card col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 col-12">
+			<h3>Book ticket</h3>
+			<form class="d-flex">
+				 <label class="tour">
+				 	<p>Sekect tour: <input type="text" placeholder="journey on the camels"></p>
+				 </label>
+				 <label class="date">
+				 	<p>date: <input type="text" placeholder="14/07/19"> — <input type="text" placeholder="30/08/19"></p>
+				 </label>
+				 <label class="country">
+				 	<p>your country: <input type="text" placeholder="Russia"></p>
+				 </label>
+				 <label class="email">
+				 	<p>Your e-mail: <input type="text"></p>
+				 </label>
+				 <div class="buttons d-flex">
+				 	<a href="#" class="dashed">More information</a>
+				 	<button>Book ticket</button>
+				 </div>
+			</form>
+		</div>
+	</div>
+
+	<section class="tours" id="tours">
+		<div class="container">
+			<h2>Our tours</h2>
+			<div class="row">
+				<div class="card col-lg-12">
+					<div class="table">
+						<span class="th"></span>
+						<span class="th excel-active">Jule</span>
+						<span class="th">August</span>
+						<span class="th">September</span>
+						<span class="th">October</span>
+						<span class="th">December</span>
+						<span class="th">January</span>
+						<span class="th">February</span>
+						<span class="th"><em>Per </em>3 nights</span>
+						<span>2 999 EUR</span>
+						<span>2 499 EUR</span>
+						<span>2 199 EUR</span>
+						<span>2 299 EUR</span>
+						<span>3 299 EUR</span>
+						<span>2 199 EUR</span>
+						<span>2 299 EUR</span>
+						<span class="th"><em>Per </em>7 nights</span>
+						<span>3 675 EUR</span>
+						<span class="excel-active">3 199 EUR</span>
+						<span>3 299 EUR</span>
+						<span>4 299 EUR</span>
+						<span>3 499 EUR</span>
+						<span>2 299 EUR</span>
+						<span>2 199 EUR</span>
+						<span class="th"><em>Per </em>11 nights</span>
+						<span>3 299 EUR</span>
+						<span>4 299 EUR</span>
+						<span>4 199 EUR</span>
+						<span>2 299 EUR</span>
+						<span>4 675 EUR</span>
+						<span>5 199 EUR</span>
+						<span>3 499 EUR</span>
+						<span class="th"><em>Per </em>29 nights</span>
+						<span>10 675 EUR</span>
+						<span>7 199 EUR</span>
+						<span>7 299 EUR</span>
+						<span>7 499 EUR</span>
+						<span>7 199 EUR</span>
+						<span>11 299 EUR</span>
+						<span>7 299 EUR</span>
+					</div>
+					<div class="text d-flex">
+						<p>Prices are <em>Per </em>one adult* to find <br/>price for children contact us</p>
+						<button>Book ticket</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="hotels" id="hotels">
+		<div class="container">
+			<h2>Hotels</h2>
+			<div class="row">
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<picture>
+							<source srcset="img/tours-alexandria.webp"
+									type="image/webp">
+							<img src="img/tours-alexandria.jpg"
+								 alt="Alexandria hotel">
+						</picture>
+						<h3>Alexandria Hotel</h3>
+						<p>Nice place with beutiful appartaments</p>
+						<p>399 EUR for 1 <em>Per </em>on</p>
+						<button>Reserve a room</button>
+					</div>
+				</div>
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<picture>
+							<source srcset="img/tours-rodina.webp"
+									type="image/webp">
+							<img src="img/tours-rodina.jpg"
+								 alt="Rodina Grand Hotel">
+						</picture>
+						<h3>Rodina Grand Hotel</h3>
+						<p>Nice place with beutiful appartaments</p>
+						<p>399 EUR for 1 <em>Per </em>on</p>
+						<button>Reserve a room</button>
+					</div>
+				</div>
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<picture>
+							<source srcset="img/tours-kempenski.webp"
+									type="image/webp">
+							<img src="img/tours-kempenski.jpg"
+								 alt="Kempenski Hotel">
+						</picture>
+						<h3>Kempenski Hotel</h3>
+						<p>Nice place with beutiful appartaments</p>
+						<p>399 EUR for 1 <em>Per </em>on</p>
+						<button>Reserve a room</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="comments" id="comments">
+		<div class="container">
+			<h2>Comments</h2>
+			<div class="row">
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<div class="profile d-flex">
+							<picture>
+								<source srcset="img/profile-1.webp"
+										type="image/webp">
+								<img src="img/profile-1.jpg"
+									 alt="Andrey L.">
+							</picture>
+							<div class="name d-flex">
+								<h3>Andrey L.</h3>
+								<small>02/07/2019</small>
+							</div>
+						</div>
+						<div class="text">
+							<p>Dolor sit amet, consectetur adipisicing elit. Sit harum esse similique! Explicabo distinctio porro, quis dicta sunt, mollitia ut recusandae culpa facere rem, nostrum corporis, ducimus consectetur. Consectetur, deserunt.</p>
+							<a href="#" class="dashed">Show another comment</a>
+						</div>						
+					</div>
+				</div>
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<div class="profile d-flex">
+							<picture>
+								<source srcset="img/profile-2.webp"
+										type="image/webp">
+								<img src="img/profile-21.jpg"
+									 alt="Artem K.">
+							</picture>
+							<div class="name d-flex">
+								<h3>Artem K.</h3>
+								<small>02/07/2019</small>
+							</div>
+						</div>
+						<div class="text">
+							<p>Nostrum hic assumenda, nam rerum. Doloribus ullam consequuntur, totam quae corporis explicabo at facilis! Excepturi veniam pariatur totam laboriosam, tempore amet quas sequi tenetur quisquam exercitationem qui eos illum mollitia fugiat velit, recusandae, officia nihil necessitatibus ad repellendus!</p>
+							<a href="#" class="dashed">Show another comment</a>
+						</div>						
+					</div>
+				</div>
+				<div class="item col-lg-4 col-md-7 col-sm-9 col-11">
+					<div class="content">
+						<div class="profile d-flex">
+							<picture>
+								<source srcset="img/profile-3.webp"
+										type="image/webp">
+								<img src="img/profile-3.jpg"
+									 alt="Angelina A.">
+							</picture>
+							<div class="name d-flex">
+								<h3>Angelina A.</h3>
+								<small>02/07/2019</small>
+							</div>
+						</div>
+						<div class="text">
+							<p>Vel, quaerat delectus laboriosam ducimus molestiae odit. Esse totam architecto molestiae, praesentium. Tempora eaque, provident modi eos <em>Per </em>piciatis blanditiis hic molestiae recusandae quas, in quam deleniti incidunt ab facilis, fuga pariatur. Nisi iusto veniam nobis magni doloremque.</p>
+							<a href="#" class="dashed">Show another comment</a>
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="contact" id="contact">
+		<div class="container">
+			<h2>Contact us</h2>
+			<div class="row">
+				<form action="" class="card col-12">
+					<h3>We will write you back!</h3>
+					<label class="name">Your name:<input type="text"></label>
+					<label class="phone">Your phone:<input type="text"></label>
+					<label class="email">Your e-mail:<input type="text"></label>
+					<button>Send form</button>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="info col-md-3 col-12">
+					<div class="logo">utours.</div>
+					<p>some information about us</p>
+				</div>
+				<div class="helpful col-lg-2 offset-lg-1 col-md-3 col-sm-4 col-6">
+					<span>Helpful</span>
+					<nav class="menu d-flex">
+						<a href="#">About us</a>
+						<a href="#">Our tours</a>
+						<a href="#">Hotels</a>
+						<a href="#">Contact us</a>
+						<a href="#">Comments</a>
+					</nav>
+				</div>
+				<div class="contacts col-lg-2 col-md-3 col-sm-4 col-6">
+					<span>Contact us</span>
+					<nav>
+						<p>Our e-mail:<br/>utour@gmail.com</p>
+						<p>Call us:<br/>+7&nbsp912&nbsp923&nbsp32&nbsp32</p>
+						<p>Follow us: <div class="icons">
+							<i class="fab fa-youtube"></i>
+							<i class="fab fa-facebook-f"></i>
+							<i class="fab fa-instagram"></i>
+						</div></p>
+					</nav>
+				</div>
+				<div class="payment col-md-3 col-sm-4 col-11">
+					<span>Accept for payment</span>
+					<div class="icons">
+						<i class="fab fa-cc-paypal"></i>
+						<i class="fab fa-cc-visa"></i>
+						<i class="fab fa-cc-mastercard"></i>
+					</div>
+				</div>
+				<p class="design col-12">Design by <a href="https://vk.com/artemkorolevbsm">Artem Korolev</a></p>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Created by DelFy -->
+	<script src='js/js.js'></script>
+	<script>
+		objectFitImages();
+	</script>
+
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+</body>
+</html>

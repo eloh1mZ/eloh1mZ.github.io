@@ -1,0 +1,1056 @@
+body
+{
+    font-family: 'Proxima Nova', sans-serif;
+    font-size: 14px;
+
+    color: #909090;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+::-webkit-scrollbar-track
+{
+    background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb
+{
+    background: #008cf0;
+}
+.row::-webkit-scrollbar,
+.cards::-webkit-scrollbar,
+{
+    height: 2px;
+}
+.row::-webkit-scrollbar-track,
+.cards::-webkit-scrollbar-track
+{
+    background: #f5f5f5;
+}
+.row::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-thumb,
+{
+    background: #008cf0;
+}
+
+/*Typography */
+a
+{
+    -webkit-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+
+    color: inherit;
+}
+a:hover
+{
+    text-decoration: none;
+
+    color: inherit;
+}
+em
+{
+    font-style: normal;
+}
+p
+{
+    line-height: 2;
+}
+.logo,
+h1,
+h2,
+h3
+{
+    font-family: 'Habibi', serif;
+    line-height: 1.25;
+
+    margin-bottom: 30px;
+
+    letter-spacing: .05em;
+
+    color: #008cf0;
+}
+h1
+{
+    font-size: 72px;
+
+    color: #fff;
+}
+h2
+{
+    font-size: 48px;
+}
+h3
+{
+    font-size: 24px;
+}
+
+/* Specific */
+.background
+{
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+
+    width: 100%;
+
+    -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+            transform: translate(-50%);
+}
+.background img
+{
+    font-family: 'object-fit: cover';
+
+    width: 100%;
+
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.table
+{
+    display: -ms-grid;
+    display:     grid;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
+    grid-template-columns: repeat(8, 1fr);
+    -ms-grid-rows: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 20px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+.table > *:nth-child(1)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+}
+.table > *:nth-child(2)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+}
+.table > *:nth-child(3)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+}
+.table > *:nth-child(4)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 7;
+}
+.table > *:nth-child(5)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 9;
+}
+.table > *:nth-child(6)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 11;
+}
+.table > *:nth-child(7)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 13;
+}
+.table > *:nth-child(8)
+{
+    -ms-grid-row: 1;
+    -ms-grid-column: 15;
+}
+.table > *:nth-child(9)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+}
+.table > *:nth-child(10)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+}
+.table > *:nth-child(11)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+}
+.table > *:nth-child(12)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 7;
+}
+.table > *:nth-child(13)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 9;
+}
+.table > *:nth-child(14)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 11;
+}
+.table > *:nth-child(15)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 13;
+}
+.table > *:nth-child(16)
+{
+    -ms-grid-row: 3;
+    -ms-grid-column: 15;
+}
+.table > *:nth-child(17)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+}
+.table > *:nth-child(18)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+}
+.table > *:nth-child(19)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 5;
+}
+.table > *:nth-child(20)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 7;
+}
+.table > *:nth-child(21)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 9;
+}
+.table > *:nth-child(22)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 11;
+}
+.table > *:nth-child(23)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 13;
+}
+.table > *:nth-child(24)
+{
+    -ms-grid-row: 5;
+    -ms-grid-column: 15;
+}
+.table > *:nth-child(25)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+}
+.table > *:nth-child(26)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+}
+.table > *:nth-child(27)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 5;
+}
+.table > *:nth-child(28)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 7;
+}
+.table > *:nth-child(29)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 9;
+}
+.table > *:nth-child(30)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 11;
+}
+.table > *:nth-child(31)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 13;
+}
+.table > *:nth-child(32)
+{
+    -ms-grid-row: 7;
+    -ms-grid-column: 15;
+}
+.table > *:nth-child(33)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+}
+.table > *:nth-child(34)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 3;
+}
+.table > *:nth-child(35)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 5;
+}
+.table > *:nth-child(36)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 7;
+}
+.table > *:nth-child(37)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 9;
+}
+.table > *:nth-child(38)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 11;
+}
+.table > *:nth-child(39)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 13;
+}
+.table > *:nth-child(40)
+{
+    -ms-grid-row: 9;
+    -ms-grid-column: 15;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.th
+{
+    color: #008cf0;
+}
+.excel-active
+{
+    color: #fff;
+}
+.dashed
+{
+    background-image: url(../img/dash.svg);
+    background-repeat: repeat-x;
+    background-position: 50% 95%;
+    -webkit-background-size: auto .15em;
+            background-size: auto .15em;
+}
+.dashed:hover
+{
+    background-image: url(../img/line.svg);
+}
+.menu-btn
+{
+    position: absolute;
+
+    visibility: hidden;
+}
+button,
+.excel-active
+{
+    padding: 10px 20px;
+
+    -webkit-transition: all .5s;
+         -o-transition: all .5s;
+            transition: all .5s;
+
+    color: #fff;
+    border: none;
+    background-color: #008cf0;
+}
+button
+{
+    font-size: 12px;
+
+    display: block;
+
+    cursor: pointer;
+}
+button:hover
+{
+    background-color: #b2b2b2;
+}
+section
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    padding: 30px 0;
+}
+input
+{
+    height: 30px;
+    padding: 10px;
+
+    border: 2px solid #b2b2b2;
+}
+.logo
+{
+    font-size: 36px;
+
+    margin: 0;
+}
+/* Item & card */
+.card,
+.item .content
+{
+    position: relative;
+
+    padding: 20px;
+
+    background-color: #fff;
+    -webkit-box-shadow: 0 3px 25px rgba(0, 0, 0, .1);
+            box-shadow: 0 3px 25px rgba(0, 0, 0, .1);
+}
+.item .content
+{
+    width: 90%;
+    margin: 0 auto;
+}
+.card::before,
+.item .content::before
+{
+    position: absolute;
+    top: 30%;
+    left: -20px;
+
+    width: 20px;
+    height: 150px;
+
+    content: '';
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+    background-color: #008cf0;
+}
+
+/* Header */
+header
+{
+    color: #008cf0;
+    background-color: #fff;
+}
+header .row
+{
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+header .logo
+{
+    width: 20%;
+    padding-left: 30px;
+}
+header .menu
+{
+    width: 60%;
+
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+header a[href='#call']
+{
+    margin-left: 0;
+}
+header button
+{
+    margin-left: auto;
+}
+header .fa
+{
+    font-size: .8em;
+}
+
+/* Main */
+main
+{
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 86vh;
+
+    color: #fff;
+}
+main .text
+{
+    margin-top: 40px;
+}
+
+/* Ticket */
+.ticket
+{
+    padding: 20px;
+
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+.ticket form
+{
+    margin-bottom: 70px;
+
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.ticket label
+{
+    margin-right: 30px;
+}
+.ticket .tour input
+{
+    width: 180px;
+}
+.ticket .date input
+{
+    width: 70px;
+    padding: 5px;
+}
+.ticket .country input
+{
+    width: 100px;
+}
+.ticket .email input
+{
+    width: 300px;
+}
+.ticket .buttons
+{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+.ticket .buttons button
+{
+    margin-left: 20px;
+}
+
+/* Tours */
+.tours .text
+{
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+            justify-content: flex-end;
+}
+.tours .text p
+{
+    line-height: 1;
+
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+}
+.ticket .card::before,
+.tours .card::before
+{
+    top: 50%;
+    right: -20px;
+    left: auto;
+}
+
+/* Hotels */
+.hotels .item img
+{
+    max-width: calc(100% + 40px);
+    margin-top: -20px;
+    margin-left: -20px;
+}
+.hotels .item h3
+{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.hotels .item p
+{
+    margin: 0;
+}
+.hotels .item button
+{
+    margin-top: 20px;
+    margin-left: 55%;
+}
+
+/* Comments */
+.comments .content
+{
+    min-height: 500px;
+}
+.comments .profile
+{
+    margin-bottom: 20px;
+}
+.comments img
+{
+    font-family: 'object-fit: cover;';
+
+    width: 100px;
+    height: 100px;
+
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+.comments .name
+{
+            flex-direction: column;
+
+    margin-left: 20px;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.comments .text
+{
+    font-family: 'Habibi', serif;
+
+    margin-bottom: 20px;
+}
+.comments .text a
+{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* Contact */
+.contact form
+{
+    position: relative;
+
+    width: 40%;
+}
+.contact label
+{
+    position: relative;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: 30px;
+    margin: 10px 0;
+
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
+}
+.contact input
+{
+    position: absolute;
+    left: 80px;
+
+    height: 30px;
+}
+.contact .name input
+{
+    width: 200px;
+}
+.contact .email input,
+.contact .phone input
+{
+    width: 320px;
+}
+.contact button
+{
+    margin-left: 305px;
+}
+.contact .card::before
+{
+    top: 50%;
+    right: -20px;
+    left: auto;
+}
+
+/* Footer */
+footer
+{
+    padding: 30px 0;
+
+    color: #fff;
+    background-color: #008cf0;
+}
+footer .logo
+{
+    color: #fff;
+}
+footer .menu
+{
+            flex-direction: column;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+}
+footer .menu a
+{
+    padding: 5px 0;
+}
+footer .contacts i
+{
+    font-size: 20px;
+
+    padding: 0 5px;
+}
+footer span
+{
+    font-weight: 700;
+
+    display: block;
+
+    margin-bottom: 10px;
+}
+footer .payment i
+{
+    font-size: 70px;
+
+    display: block;
+}
+footer .design
+{
+    margin-top: 40px;
+
+    color: #fff;
+}
+footer .design a
+{
+    position: relative;
+
+    width: -webkit-max-content;
+    width:    -moz-max-content;
+    width:         max-content;
+    margin: 7.5px 0;
+}
+footer .design a::before
+{
+    position: absolute;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    content: '';
+    -webkit-transition: .5s;
+         -o-transition: .5s;
+            transition: .5s;
+
+    opacity: .5;
+    background: #fff;
+}
+
+/* Media */
+@media screen and (max-width:1024.5px)
+{
+    header a[href='#call']
+    {
+        margin: 0;
+    }
+    .ticket
+    {
+        margin-top: 20px;
+
+        -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+                transform: translateY(0);
+    }
+    main
+    {
+    }
+}
+@media screen and (max-width:991.5px)
+{
+    h1
+    {
+        font-size: 48px;
+    }
+    h2
+    {
+        font-size: 36px;
+    }
+    h3
+    {
+        font-size: 24px;
+    }
+    .excel-active
+    {
+        padding: 2px;
+    }
+    .table
+    {
+        grid-column-gap: 0;
+    }
+    .menu-btn
+    {
+        position: relative;
+
+        visibility: visible;
+    }
+    header a[href='#call'] span
+    {
+        position: absolute;
+
+        visibility: hidden;
+    }
+    header .logo
+    {
+        width: auto;
+    }
+    header .menu
+    {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 20%;
+
+                flex-direction: column;
+
+        width: auto;
+        padding: 8px 20px;
+
+        -webkit-transition: all .5s;
+             -o-transition: all .5s;
+                transition: all .5s;
+        -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+                transform: scale(0);
+        -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+                transform-origin: top;
+
+        background-color: #fff;
+
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+    }
+    header .menu a
+    {
+        margin: 2px 0;
+    }
+    header .menu-active
+    {
+        -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+                transform: scale(1);
+    }
+    header .logo
+    {
+        padding: 0;
+    }
+    .ticket .email input
+    {
+        width: 70%;
+    }
+    .hotels .row,
+    .comments .row
+    {
+        overflow-x: scroll;
+
+        padding-bottom: 20px;
+
+        -webkit-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+    }
+    footer .info
+    {
+        padding: 0;
+    }
+}
+@media screen and (max-width:576.5px)
+{
+    em
+    {
+        position: absolute;
+
+        visibility: hidden;
+    }
+    .table
+    {
+        font-size: 12px;
+    }
+    .logo
+    {
+        font-size: 24px;
+    }
+    main
+    {
+        height: auto;
+    }
+    footer .info
+    {
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+}
+@media screen and (max-width:425.5px)
+{
+    .item .content
+    {
+        width: 98%;
+    }
+    main .text
+    {
+        margin-top: 10px;
+    }
+    main .background,
+    main .background img
+    {
+        height: 100%;
+    }
+    .tours
+    {
+        position: absolute;
+
+        opacity: 0;
+    }
+    .hotels .item button
+    {
+        margin-left: 54%;
+    }
+    .comments .content
+    {
+        padding: 10px;
+    }
+    .comments h3
+    {
+        font-size: 20px;
+    }
+    .contact button
+    {
+        margin-left: 200px;
+    }
+    .contact .name input
+    {
+        width: 175px;
+    }
+    .contact .email input,
+    .contact .phone input
+    {
+        width: 250px;
+    }
+    footer .payment .icons
+    {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+}
+@media screen and (max-width:320.5px)
+{
+    h1
+    {
+        font-size: 42px;
+
+        margin-bottom: 10px;
+    }
+    .hotels .item button
+    {
+        margin-left: 43%;
+    }
+    .contact button
+    {
+        margin-left: 175px;
+    }
+    .contact .name input
+    {
+        width: 155px;
+    }
+    .contact .email input,
+    .contact .phone input
+    {
+        width: 200px;
+    }
+}
