@@ -16,7 +16,7 @@
 	<div class="row" style="align-items: flex-start; justify-content: space-between;">
 		<div class="column">
 			<div onclick="cmd.show()" class="label column cmdLabel"><img src="pictures/logo.svg" alt=""><span>eloh1mZ.exe</span></div>
-			<div onclick="calc.show(); calc.input = document.querySelector('.calc__input input'); calc.input.value = 0;" class="label column calcLabel"><img src="pictures/calc.svg" alt=""><span>calc.exe</span></div>
+			<div onclick="calc.show(); calc.input = document.querySelector('.calc__input input'); calc.input.value = 0;" class="label column calcLabel" style="background-color: rgba(128, 128, 128, 0.5);"><img src="pictures/calc.svg" alt=""><span>calc.exe</span></div>
 		</div>
 		<div class="row" style="align-items: flex-start; justify-content: space-between;">
 			<div class="column">
@@ -41,13 +41,15 @@
 		<source
 		   srcset="pictures/0/400.webp 400w,
 				   pictures/0/800.webp 800w,
-				   pictures/0/1200.webp 1200w"
+				   pictures/0/1200.webp 1200w,
+				   pictures/0/1600.webp 1600w"
 			 type="image/webp">
 		<img
 			  src="pictures/0/400.jpg" alt=""
 		   srcset="pictures/0/400.jpg 400w,
 				   pictures/0/800.jpg 800w,
-				   pictures/0/1200.jpg 1200w">
+				   pictures/0/1200.jpg 1200w,
+				   pictures/0/1600.jpg 1600w">
 	</picture>
 
 	<script src="js/js.js"></script>
@@ -55,7 +57,7 @@
 	<script src="js/cmd.js"></script>
 	<script src="js/calc.js"></script>
 
-	<script></script>
+	<script>cmd.show()</script>
 
 
 </body>
