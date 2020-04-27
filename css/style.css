@@ -1,10 +1,10 @@
 @font-face {
-	font-family: 'play';
+	font-family: 'ubuntu';
 	font-weight: normal;
 	font-style: normal;
 
-	src: url('../fonts/play.eot');
-	src: local('☺'), url('../fonts/play.woff') format('woff'), url('../fonts/play.ttf') format('truetype'), url('../fonts/play.svg') format('svg');
+	src: url('../fonts/ubuntu.eot');
+	src: local('☺'), url('../fonts/ubuntu.woff') format('woff'), url('../fonts/ubuntu.ttf') format('truetype'), url('../fonts/ubuntu.svg') format('svg');
 }
 
 :root {
@@ -16,7 +16,7 @@ html { overflow: hidden }
 }
 body {
 	margin: 0;
-	font-family: 'play', sans-serif;
+	font-family: 'ubuntu', sans-serif;
 	font-size: 14px;
 	overflow: hidden;
 	height: 100vh;

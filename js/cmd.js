@@ -30,10 +30,10 @@ Func = () => {
 		<span class="cyan">photoshop</span> — 60%<br>
 		<span class="magenta">figma</span> — 70%<br>`,
 
-		'contacts': `<a target="blank" href='https://vk.com/eloh1mZ' class='blue'>vkontakte</a>
-		 <a target="blank" href='https://www.instagram.com/eloh1mZ/' class='magenta'>instagram</a>
-		 <a target="blank" href='https://github.com/eloh1mZ' class='violet'>github</a>
-		 <a target="blank" href='' class='red'>gmail</a>
+		'contacts': `<a target="blank" href='https://vk.com/id593099661' class='blue'>vkontakte</a><br>
+		 <a target="blank" href='https://www.instagram.com/eloh1mZ/' class='magenta'>instagram</a><br>
+		 <a target="blank" href='https://github.com/eloh1mZ' class='violet'>github</a><br>
+		 <a target="blank" href='' class='red'>gmail</a><br>
 		 <a target="blank" href='https://steamcommunity.com/id/eloh1mZ'>steam</a>`,
 
 		 'works': `<a target="blank" href='utours/' class='blue'>utours</a> — Egypt tours<br>

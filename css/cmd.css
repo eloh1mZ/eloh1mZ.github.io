@@ -13,7 +13,6 @@
 	height: calc(var(--cmd-height) - 35px);
 	padding: 10px;
 	color: #E5E5E5;
-	font-family: monospace;
 	display: flex;
 	flex-direction: column;
 }
@@ -22,6 +21,7 @@
 	-ms-align-items: center;
 	align-items: center;
 	flex-direction: column;
+	font-family: 'Consolas', monospace;
 	font-size: calc(calc(100vw - 20px) / 60);
 }
 .cmd .main__logo__image {
@@ -30,7 +30,6 @@
 .cmd .main__logo__nickname {
 	font-size: 2em;
 }
-
 .cmd .inputBox input {
 	display: block;
 	width: 100%;
