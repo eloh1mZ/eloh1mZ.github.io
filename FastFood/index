@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dangerous eating fast food</title>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<article class="title">
+		<h1>Dangerous eating fast food</h1>
+		<p class="author"><a href="https://www.instagram.com/eloh1mZ">Vladislav <b>eloh1mZ</b> Atakhanov</a></p>
+	</article>
+
+	<article>
+		<picture>
+			<source
+			   srcset="pictures/0/400.webp 400w,
+					   pictures/0/800.webp 800w,
+					   pictures/0/1200.webp 1200w"
+				 type="image/webp">
+			<img
+				  src="pictures/0/400.jpg" alt=""
+			   srcset="pictures/0/400.jpg 400w,
+					   pictures/0/800.jpg 800w,
+					   pictures/0/1200.jpg 1200w">
+		</picture>
+		<h2>Popularity of fast food</h2>
+		<p>Swinging through the drive-thru or hopping into your favorite fast-food restaurant tends to happen more often than some would like to admit. </p>
+		<p>According to the Food Institute’s analysis of data from the Bureau of Labor Statistics, millennials alone spend 45 percent of their budget’s food dollars on eating out.</p>
+		<p>In comparison to 40 years ago, the average American family now spends half their food budget on restaurant food. In 1977, just under 38 percent of family food budgets were spent eating outside the home.</p>
+		<p>While an occasional night of fast food won’t hurt, a habit of eating out could be doing a number on your health. Read on to learn the effects of fast food on your body.</p>
+	</article>
+
+	<article>
+		<h2>Effect on the digestive and cardiovascular systems</h2>
+		<p>Most fast food, including drinks and sides, are loaded with carbohydrates with little to no fiber.</p>
+		<p>When your digestive system breaks down these foods, the carbs are released as glucose (sugar) into your bloodstream. As a result, your blood sugar increases.</p>
+		<p>Your pancreas responds to the surge in glucose by releasing insulin. Insulin transports sugar throughout your body to cells that need it for energy. As your body uses or stores the sugar, your blood sugar returns to normal.</p>
+		<p>This blood sugar process is highly regulated by your body, and as long as you’re healthy, your organs can properly handle these sugar spikes.</p>
+		<p>But frequently eating high amounts of carbs can lead to repeated spikes in your blood sugar.</p>
+		<p>Over time, these insulin spikes may cause your body’s normal insulin response to falter. This increases your risk for insulin resistance, type 2 diabetes, and weight gain.</p>
+	</article>
+
+
+	<article>
+		<h2>Sugar and fat</h2>
+		<p>Many fast-food meals have added sugar. Not only does that mean extra calories, but also little nutrition. The American Heart Association (AHA) suggests only eating 100 to 150 calories of added sugar per day. That’s about six to nine teaspoons.</p>
+		<p>Trans fat is manufactured fat created during food processing. It’s commonly found in:
+			<ul>
+				<li>fried pies</li>
+				<li>pastries</li>
+				<li>pizza dough</li>
+				<li>crackers</li>
+				<li>cookies</li>
+			</ul>
+		</p>
+		<p>No amount of trans fat is good or healthy. Eating foods that contain it can increase your LDL (bad cholesterol), lower your HDL (good cholesterol), and increase your risk for type 2 diabetes and heart disease.</p>
+		<p>Restaurants may also compound the calorie-counting issue. In one study, people eating at restaurants they associated as “healthy” still underestimated the number of calories in their meal by 20 percent.</p>
+	</article>
+
+	<article>
+		<h2>Sodium</h2>
+		<p>The combination of fat, sugar, and lots of sodium (salt) can make fast food tastier to some people. But diets high in sodium can lead to water retention, which is why you may feel puffy, bloated, or swollen after eating fast food.</p>
+		<p>A diet high in sodium is also dangerous for people with blood pressure conditions. Sodium can elevate blood pressure and put stress on your heart and cardiovascular system.</p>
+		<p>According to one study, about 90 percent of adults underestimate how much sodium is in their fast-food meals.</p>
+		<p>The study surveyed 993 adults and found that their guesses were six times lower than the actual number (1,292 milligrams). This means sodium estimates were off by more than 1,000 mg.</p>
+		<p>Keep in mind that the AHA recommends adults eat no more than 2,300 milligrams of sodium per day. One fast-food meal could have half your day’s worth.</p>
+	</article>
+
+	<article>
+		<h2>Effect on the respiratory system</h2>
+		<p>Excess calories from fast-food meals can cause weight gain. This may lead toward obesity.</p>
+		<p>Obesity increases your risk for respiratory problems, including asthma and shortness of breath.</p>
+		<p>The extra pounds can put pressure on your heart and lungs and symptoms may show up even with little exertion. You may notice difficulty breathing when you’re walking, climbing stairs, or exercising.</p>
+		<p>For children, the risk of respiratory problems is especially clear. One study found that children who eat fast food at least three times a week are more likely to develop asthma.</p>
+	</article>
+
+	<article>
+		<h2>Effect on the central nervous system</h2>
+		<p>Fast food may satisfy hunger in the short term, but long-term results are less positive.</p>
+		<p>People who eat fast food and processed pastries are 51 percent more likely to develop depression than people who don’t eat those foods or eat very few of them.</p>
+	</article>
+
+	<article>
+		<h2>Thanks for watching</h2>
+		<p class="author"><a href="https://www.instagram.com/eloh1mZ">Vladislav <b>eloh1mZ</b> Atakhanov</a></p>
+	</article>
+</body>
+</html>
