@@ -9,7 +9,7 @@ document.addEventListener("scroll", e => {
 let i = 0
 let codes = ["геночкапомилуй", "utyjxrfgjvbkeq"]
 document.addEventListener("keyup", e => {
-	if (e.key.toLowerCase == codes[0][i] || e.key.toLowerCase == codes[1][i]) {
+	if (e.key.toLowerCase() == codes[0][i] || e.key.toLowerCase() == codes[1][i]) {
 		i++
 	} else {
 		i = 0
