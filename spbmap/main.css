@@ -22,11 +22,13 @@
 
 body {
 	height: 100vh;
+	width: 100vw;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
 	font-family: sans-serif;
+	line-height: 1.5;
 }
 * {
 	box-sizing: border-box;
@@ -127,8 +129,9 @@ h2 {
 
 	min-width: 100%;
 	padding-top: 56.25%;
+	overflow: hidden;
+	border-radius: var(--info-padding);
 
-	background-color: #F0f;
 	transition: 0.5s opacity linear;
 }
 .info .text {
@@ -138,7 +141,7 @@ h2 {
 	opacity: 1;
 }
 .info.c .text {
-	margin-top: 60%;
+	margin-top: 65%;
 }
 .coords h3, .coords p {
 	margin: 5px 0;
@@ -150,7 +153,7 @@ h2 {
 		opacity: 1;
 	}
 	.info .text {
-		margin-top: 60%;
+		margin-top: 65%;
 	}
 }
 
@@ -271,19 +274,15 @@ span {
 	border-radius: 3px;
 	color: var(--bg-color);
 }
-span.red {
-	background-color: var(--red);
-}
-span.green {
-	background-color: var(--green);
-}
-span.blue {
-	background-color: var(--blue);
-}
-span.yellow {
-	background-color: var(--yellow);
-}
+span.red {background-color: var(--red);}
+span.green {background-color: var(--green);}
+span.blue {background-color: var(--blue);}
+span.yellow {background-color: var(--yellow);}
 
+span.gray {
+	background-color: #eee;
+	color: #000;
+}
 .title p {
 	padding: 0;
 	margin-top: 0.5em;
@@ -291,4 +290,42 @@ span.yellow {
 }
 .coords {
 	margin-top: 2em;
+}
+#defaultBtn {
+	position: fixed;
+	padding: 10px;
+	width: 50px;
+	height: 50px;
+	top: var(--info-padding);
+	right: var(--info-padding);
+	color: var(--text-color);
+	background-color: transparent;
+	border: none;
+	opacity: 0.5;
+}
+#defaultBtn svg {
+	fill: currentColor;
+}
+#scaleRange {
+	position: fixed;
+	top: 50%;
+	right: var(--info-padding);
+	transform-origin: right;
+	transform: rotate(-90deg);
+}
+
+.background {
+	position: absolute;
+	height: 100%;
+	width: calc(100% + var(--info-padding) * 2);
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.background img {
+	width: 100%;
+}
+.description {
+	margin-top: 40px;
 }
