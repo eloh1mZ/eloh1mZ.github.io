@@ -5,6 +5,12 @@ aksu: [
 bGABHOBOZ: [
 `<picture class="background"><source srcset="pictures/bGABHOBOZ/0/400.webp 400w, pictures/bGABHOBOZ/0/800.webp 800w, pictures/bGABHOBOZ/0/1200.webp 1200w" type="image/webp"><img src="pictures/bGABHOBOZ/0/400.jpg" alt="База" srcset="pictures/bGABHOBOZ/0/400.jpg 400w, pictures/bGABHOBOZ/0/800.jpg 800w, pictures/bGABHOBOZ/0/1200.jpg 1200w" data-src="pictures/bGABHOBOZ/0/400.jpg"> </picture>`
 ],
+coldsprings: [
+`<picture class="background"><source srcset="pictures/coldsprings/0/400.webp 400w, pictures/coldsprings/0/800.webp 800w, pictures/coldsprings/0/1200.webp 1200w" type="image/webp"><img src="pictures/coldsprings/0/400.jpg" alt="Холодные Источники" srcset="pictures/coldsprings/0/400.jpg 400w, pictures/coldsprings/0/800.jpg 800w, pictures/coldsprings/0/1200.jpg 1200w" data-src="pictures/coldsprings/0/400.jpg"> </picture>`,
+`<picture class="background"><source srcset="pictures/coldsprings/1/400.webp 400w, pictures/coldsprings/1/800.webp 800w, pictures/coldsprings/1/1200.webp 1200w" type="image/webp"><img src="pictures/coldsprings/1/400.jpg" alt="Холодные Источники" srcset="pictures/coldsprings/1/400.jpg 400w, pictures/coldsprings/1/800.jpg 800w, pictures/coldsprings/1/1200.jpg 1200w" data-src="pictures/coldsprings/1/400.jpg"> </picture>`,
+`<picture class="background"><source srcset="pictures/coldsprings/3/400.webp 400w, pictures/coldsprings/3/800.webp 800w, pictures/coldsprings/3/1200.webp 1200w" type="image/webp"><img src="pictures/coldsprings/3/400.jpg" alt="Холодные Источники" srcset="pictures/coldsprings/3/400.jpg 400w, pictures/coldsprings/3/800.jpg 800w, pictures/coldsprings/3/1200.jpg 1200w" data-src="pictures/coldsprings/3/400.jpg"> </picture>`,
+`<picture class="background"><source srcset="pictures/coldsprings/4/400.webp 400w, pictures/coldsprings/4/800.webp 800w, pictures/coldsprings/4/1200.webp 1200w" type="image/webp"><img src="pictures/coldsprings/4/400.jpg" alt="Холодные Источники" srcset="pictures/coldsprings/4/400.jpg 400w, pictures/coldsprings/4/800.jpg 800w, pictures/coldsprings/4/1200.jpg 1200w" data-src="pictures/coldsprings/4/400.jpg"> </picture>`
+],
 erinsburg: [
 `<picture class="background"><source srcset="pictures/erinsburg/0/400.webp 400w, pictures/erinsburg/0/800.webp 800w, pictures/erinsburg/0/1200.webp 1200w" type="image/webp"><img src="pictures/erinsburg/0/400.jpg" alt="Эринсбург" srcset="pictures/erinsburg/0/400.jpg 400w, pictures/erinsburg/0/800.jpg 800w, pictures/erinsburg/0/1200.jpg 1200w" data-src="pictures/erinsburg/0/400.jpg"> </picture>`,
 `<picture class="background"><source srcset="pictures/erinsburg/1/400.webp 400w, pictures/erinsburg/1/800.webp 800w, pictures/erinsburg/1/1200.webp 1200w" type="image/webp"><img src="pictures/erinsburg/1/400.jpg" alt="Эринсбург" srcset="pictures/erinsburg/1/400.jpg 400w, pictures/erinsburg/1/800.jpg 800w, pictures/erinsburg/1/1200.jpg 1200w" data-src="pictures/erinsburg/1/400.jpg"> </picture>`
@@ -19,7 +25,7 @@ gromorog: [
 `<picture class="background"><source srcset="pictures/gromorog/6/400.webp 400w, pictures/gromorog/6/800.webp 800w, pictures/gromorog/6/1200.webp 1200w" type="image/webp"><img src="pictures/gromorog/6/400.jpg" alt="Громорог" srcset="pictures/gromorog/6/400.jpg 400w, pictures/gromorog/6/800.jpg 800w, pictures/gromorog/6/1200.jpg 1200w" data-src="pictures/gromorog/6/400.jpg"> </picture>`
 ],
 hub: [
-`<picture class="background"><source srcset="pictures/hub/1/400.webp 400w, pictures/hub/1/800.webp 800w, pictures/hub/1/1200.webp 1200w" type="image/webp"><img src="pictures/hub/1/400.jpg" alt="Хаб" srcset="pictures/hub/1/400.jpg 400w, pictures/hub/1/800.jpg 800w, pictures/hub/1/1200.jpg 1200w" data-src="pictures/hub/1/400.jpg"> </picture>`
+`<picture class="background"><source srcset="pictures/hub/0/400.webp 400w, pictures/hub/0/800.webp 800w, pictures/hub/0/1200.webp 1200w" type="image/webp"><img src="pictures/hub/0/400.jpg" alt="Хаб" srcset="pictures/hub/0/400.jpg 400w, pictures/hub/0/800.jpg 800w, pictures/hub/0/1200.jpg 1200w" data-src="pictures/hub/0/400.jpg"> </picture>`
 ],
 infernia: [
 `<picture class="background"><source srcset="pictures/infernia/0/400.webp 400w, pictures/infernia/0/800.webp 800w, pictures/infernia/0/1200.webp 1200w" type="image/webp"><img src="pictures/infernia/0/400.jpg" alt="Инферния" srcset="pictures/infernia/0/400.jpg 400w, pictures/infernia/0/800.jpg 800w, pictures/infernia/0/1200.jpg 1200w" data-src="pictures/infernia/0/400.jpg"> </picture>`,
@@ -47,6 +53,11 @@ putinburg: [
 ],
 selement: [
 `<picture class="background"><source srcset="pictures/selement/0/400.webp 400w, pictures/selement/0/800.webp 800w, pictures/selement/0/1200.webp 1200w" type="image/webp"><img src="pictures/selement/0/400.jpg" alt="Селемент" srcset="pictures/selement/0/400.jpg 400w, pictures/selement/0/800.jpg 800w, pictures/selement/0/1200.jpg 1200w" data-src="pictures/selement/0/400.jpg"> </picture>`
+],
+starkiller: [
+`<picture class="background"><source srcset="pictures/starkiller/0/400.webp 400w, pictures/starkiller/0/800.webp 800w, pictures/starkiller/0/1200.webp 1200w" type="image/webp"><img src="pictures/starkiller/0/400.jpg" alt="StarKiller" srcset="pictures/starkiller/0/400.jpg 400w, pictures/starkiller/0/800.jpg 800w, pictures/starkiller/0/1200.jpg 1200w" data-src="pictures/starkiller/0/400.jpg"> </picture>`,
+`<picture class="background"><source srcset="pictures/starkiller/1/400.webp 400w, pictures/starkiller/1/800.webp 800w, pictures/starkiller/1/1200.webp 1200w" type="image/webp"><img src="pictures/starkiller/1/400.jpg" alt="StarKiller" srcset="pictures/starkiller/1/400.jpg 400w, pictures/starkiller/1/800.jpg 800w, pictures/starkiller/1/1200.jpg 1200w" data-src="pictures/starkiller/1/400.jpg"> </picture>`,
+`<picture class="background"><source srcset="pictures/starkiller/2/400.webp 400w, pictures/starkiller/2/800.webp 800w, pictures/starkiller/2/1200.webp 1200w" type="image/webp"><img src="pictures/starkiller/2/400.jpg" alt="StarKiller" srcset="pictures/starkiller/2/400.jpg 400w, pictures/starkiller/2/800.jpg 800w, pictures/starkiller/2/1200.jpg 1200w" data-src="pictures/starkiller/2/400.jpg"> </picture>`
 ],
 tavern: [
 `<picture class="background"><source srcset="pictures/tavern/0/400.webp 400w, pictures/tavern/0/800.webp 800w, pictures/tavern/0/1200.webp 1200w" type="image/webp"><img src="pictures/tavern/0/400.jpg" alt="Tavern" srcset="pictures/tavern/0/400.jpg 400w, pictures/tavern/0/800.jpg 800w, pictures/tavern/0/1200.jpg 1200w" data-src="pictures/tavern/0/400.jpg"> </picture>`,
