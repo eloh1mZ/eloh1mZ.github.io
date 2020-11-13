@@ -84,17 +84,17 @@ function copy()
 		}
 
 		result += `    "nether": {\n`
-		result += `        "x": "${inputs.netherX.value}",\n`
-		if (inputs.netherY.value != "65") {result += `        "y": "${inputs.netherY.value}",\n`}
-		result += `        "z": "${inputs.netherZ.value}"\n`
+		result += `        "x": ${inputs.netherX.value},\n`
+		if (inputs.netherY.value != "65") {result += `        "y": ${inputs.netherY.value},\n`}
+		result += `        "z": ${inputs.netherZ.value}\n`
 		result += `    },\n`
 
 		if (inputs.overworldX.value != "" && inputs.overworldY.value != "" && inputs.overworldZ.value != "")
 		{
 			result += `    "overworld": {\n`
-			result += `        "x": "${inputs.overworldX.value}",\n`
-			result += `        "y": "${inputs.overworldY.value}",\n`
-			result += `        "z": "${inputs.overworldZ.value}"\n`
+			result += `        "x": ${inputs.overworldX.value},\n`
+			result += `        "y": ${inputs.overworldY.value},\n`
+			result += `        "z": ${inputs.overworldZ.value}\n`
 			result += `    },\n`
 		}
 
@@ -175,7 +175,7 @@ function changeType(txt)
 		}
 	}
 
-	if (txt != "end") {
+	if (txt == "city" || txt == "base") {
 		document.getElementsByClassName("marks")[0].style.display = "block"
 	}
 	else {
