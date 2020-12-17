@@ -1,1 +1,457 @@
-const map={el:document.getElementById("map"),wrapper:document.getElementById("mapWrapper"),scale:.5,x:0,z:0,savedX:0,savedZ:0},info={el:document.getElementsByClassName("info")[0],closeBtn:document.getElementById("infoCloseBtn"),openBtn:document.getElementById("infoOpenBtn"),currentState:0},html=document.documentElement;let favorite=(localStorage.getItem("favorite")||"").split("}{"),dotEls=document.getElementsByClassName("dot"),dots={loadedInfo:[]};for(let e=0;e<dotEls.length;e++){const t=dotEls[e].getAttribute("href").slice(1);dots[t]={title:dotEls[e].title,el:dotEls[e],loadedImages:[],selectedImage:0};let s="";dotEls[e].classList.contains("dot--red")&&(s="red"),dotEls[e].classList.contains("dot--green")&&(s="green"),dotEls[e].classList.contains("dot--blue")&&(s="blue"),dotEls[e].classList.contains("dot--yellow")&&(s="yellow"),dots[t].branch=s,dots[t].x=20*dotEls[e].style.left.replace(/calc\(/g,"").replace(/rem \+ 50%\)/g,""),dots[t].z=20*dotEls[e].style.top.replace(/calc\(/g,"").replace(/rem \+ 50%\)/g,"")}let darkTheme=localStorage.getItem("darkTheme");function switchTheme(){html.classList.toggle("dark"),html.classList.add("theme-in-transition"),setTimeout(function(){html.classList.remove("theme-in-transition")},500),"true"==darkTheme?localStorage.setItem("darkTheme","false"):localStorage.setItem("darkTheme","true")}"true"==darkTheme&&html.classList.add("dark");let selectedDot="hub";showInfo(selectedDot);for(let e=0;e<dotEls.length;e++)dotEls[e].addEventListener("click",function(t){const s=dotEls[e].getAttribute("href").slice(1);dots[selectedDot].el.classList.remove("selected"),dots[s].el.classList.add("selected"),hideInfo(selectedDot),showInfo(s),selectedDot==s&&updateInfo(1,"+"),selectedDot!=s&&updateInfo(1,"="),showImage(s,0),selectedDot=s});function showImage(e,t){images[e]&&!dots[e].loadedImages.includes(t)&&(dots[e].loadedImages.push(t),dots[e].imageBlock.innerHTML+=images[e][t]),dots[e].imageBlock&&(dots[e].imageBlock.children[t].style.opacity="1",dots[e].imageBlock.children[t].style.zIndex="1")}function hideImage(e,t){dots[e].imageBlock&&(dots[e].imageBlock.children[t].style.opacity="0",dots[e].imageBlock.children[t].style.zIndex="0")}const scaleRange=document.getElementById("scaleRange");function changeScale(e){map.scale=parseFloat(scaleRange.value),scaleMap()}scaleRange.value=map.scale;let fingers=[],prevDiff=0;function toDefault(e){map.scale=.5,map.x=0,map.z=0,map.el.style.transition="transform 0.25s linear",moveMap(),setTimeout(function(){map.el.style.transition="transform 0s linear"},250)}function updateInfo(e,t="="){const s=["a","b","c"];info.el.classList.remove(s[info.currentState]),info.closeBtn.classList.remove(s[info.currentState]),info.openBtn.classList.remove(s[info.currentState]),"="==t&&(info.currentState=e),"+"==t&&(info.currentState+=e),info.currentState<0&&(info.currentState=0),info.currentState>=s.length&&(info.currentState=s.length-1),info.el.classList.add(s[info.currentState]),info.closeBtn.classList.add(s[info.currentState]),info.openBtn.classList.add(s[info.currentState])}function scaleMap(){map.scale>2&&(map.scale=2),map.scale<.1&&(map.scale=.1),map.el.style.transform=`translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`,scaleRange.value=map.scale,map.x=map.scale*map.savedX,map.z=map.scale*map.savedZ}function moveMap(){map.savedX=map.x/map.scale,map.savedZ=map.z/map.scale,map.el.style.transformOrigin=`calc(50% - ${map.savedX}px) calc(50% - ${map.savedZ}px)`,map.el.style.transform=`translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`}map.wrapper.addEventListener("pointerdown",function(e){fingers.push(e);let t=!0,s=e.pageX-map.x,a=e.pageY-map.z;function o(e){for(let t=0;t<fingers.length;t++)e.pointerId===fingers[t].pointerId&&fingers.splice(t,1);map.wrapper.style.cursor="default",fingers.length<1&&(map.wrapper.addEventListener("pointermove",null,{passive:!0}),map.wrapper.addEventListener("pointerup",null,{passive:!0}),prevDiff=0)}map.wrapper.style.cursor="move",map.wrapper.addEventListener("pointermove",function(e){for(let t=0;t<fingers.length;t++)e.pointerId===fingers[t].pointerId&&(fingers[t]=e);if(1==fingers.length&&t)map.x=e.pageX-s,map.z=e.pageY-a,moveMap();else if(2==fingers.length){t=!1;const e=Math.abs(fingers[0].clientY-fingers[1].clientY);prevDiff>0&&(map.scale+=(e-prevDiff)/100),prevDiff=e,scaleMap()}},{passive:!0}),map.wrapper.addEventListener("pointerup",o,{passive:!0}),map.wrapper.addEventListener("pointerenter",o,{passive:!0})},{passive:!0}),map.wrapper.addEventListener("mousewheel",function(e){map.el.style.transition="none";let t=e.deltaY||e.detail||e.wheelDelta;map.scale+=t<0?.05:-.05,map.el.style.transition="transform 0.1s linear",scaleMap(),setTimeout(function(){map.el.style.transition="transform 0s linear"},250)},{passive:!0}),info.el.addEventListener("click",function(e){updateInfo(1,"+")},{passive:!0});const court="";function showDot(e,t=!0){""!=e&&(dots[e].el.click(),map.x=1.4*-dots[e].x,map.z=1.4*-dots[e].z,map.scale=1.75,t&&(map.el.style.transition="all 0.25s linear"),moveMap(),t&&setTimeout(function(){map.el.style.transition="all 0s linear"},250))}function next(e){const t=e.parentNode.id;e.children;hideImage(t,dots[t].selectedImage),dots[t].selectedImage=(dots[t].selectedImage+1)%images[t].length,showImage(t,dots[t].selectedImage)}function openInfo(){showImage("hub",dots.hub.selectedImage),updateInfo(1)}function showInfo(e){if(!dots.loadedInfo.includes(e)){const t=document.createElement("script");t.src=`info/${e}.js`,t.async="true",document.body.appendChild(t),dots[e].info=document.getElementById(e),dots[e].imageBlock=dots[e].info.getElementsByClassName("info__image")[0],t.onload=(()=>{favorite||(favorite=localStorage.getItem("favorite").split("}{")||[]),favorite.includes(e)&&document.querySelector(`#${e} .btn--favoriteStatus`).classList.add("isFavorite")})}dots[e].info&&(dots[e].info.style.opacity="1",dots[e].info.style.zIndex="1")}function hideInfo(e){dots[e].info&&(dots[e].info.style.opacity="0",dots[e].info.style.zIndex="0")}const hash=document.location.hash.slice(1);hash&&dots[hash]&&showDot(hash,!1);const searchList=document.querySelector(".search__list");function search(e){const t=[],s=e.value.toLowerCase();for(;searchList.firstChild;)searchList.removeChild(searchList.firstChild);if(""!=s){for(const e in dots){if(dot=dots[e],t.length>10)break;dot.title&&"портал в энд"!=dot.title.toLowerCase()&&dot.title.toLowerCase().search(s)>-1&&t.push(e)}for(let e=0;e<t.length;e++){const s=document.createElement("li");s.classList.add("dot__item"),s.classList.add("search__item"),s.innerHTML=`<a href="#${t[e]}" class="dot__link dot__link--${dots[t[e]].branch}" onclick="showDot('${t[e]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[t[e]].title}</h3><p class="dot__item_id">${t[e]}</p></a>`,searchList.appendChild(s)}}}function unfocusSearch(){for(;searchList.firstChild;)searchList.removeChild(searchList.firstChild);document.querySelector(".search__input").value=""}function getDist(e,t){return dist=0,e!=t&&("yellow"==dots[e].branch&&"red"==dots[t].branch||"yellow"==dots[t].branch&&"red"==dots[e].branch||"blue"==dots[e].branch&&"green"==dots[t].branch||"blue"==dots[t].branch&&"green"==dots[e].branch||dots[e].branch==dots[t].branch?"yellow"==dots[e].branch||"red"==dots[e].branch?dist=Math.abs(dots[e].z-dots[t].z)+Math.abs(dots[e].x)+Math.abs(dots[t].x):dist=Math.abs(dots[e].x-dots[t].x)+Math.abs(dots[e].z)+Math.abs(dots[t].z):dist=Math.abs(dots[e].x)+Math.abs(dots[t].x)+Math.abs(dots[e].z)+Math.abs(dots[t].z)),dist}const calculator=document.getElementById("calculator");function showCalculator(){calculator.classList.add("calculator--opened")}function hideCalculator(){calculator.classList.remove("calculator--opened"),document.querySelector(".calculator__result_dots").innerHTML="",document.querySelector(".calculator__result_dist").innerHTML="",document.querySelector(".calculator__result_time").innerHTML=""}const calcInputs=document.getElementsByClassName("calculator__input");function calcDist(){const e=calcInputs[0].value.toLowerCase(),t=calcInputs[1].value.toLowerCase();if(""==e||""==t)return document.querySelector(".calculator__result_dots").innerHTML="",document.querySelector(".calculator__result_dist").innerHTML="",void(document.querySelector(".calculator__result_time").innerHTML="");const s=[];for(const a in dots){if(dot=dots[a],s.length>2)break;dot.title&&("портал в энд"!=dot.title.toLowerCase()&&dot.title.toLowerCase().search(e)>-1&&s.push(a),"портал в энд"!=dot.title.toLowerCase()&&dot.title.toLowerCase().search(t)>-1&&s.push(a))}if(dots[s[0]]&&dots[s[1]]){document.querySelector(".calculator__result_dots").innerHTML=`<a class="calculator__result_link" onclick="showDot('${s[0]}')">${dots[s[0]].title}</a> — <a class="calculator__result_link" onclick="showDot('${s[1]}')">${dots[s[1]].title}</a>`;const e=getDist(s[0],s[1]);document.querySelector(".calculator__result_dist").innerHTML=`${e} блоков`,document.querySelector(".calculator__result_time").innerHTML=`${Math.round(e/35)} секунд`}}let favoriteEl=document.querySelector(".favorite"),favoriteList=document.querySelector(".favorite__list");for(let e=0;e<favorite.length;e++)if(dots[favorite[e]]){const t=document.createElement("li");t.classList.add("dot__item"),t.classList.add("favorite__item"),t.innerHTML=`<a href="#${favorite[e]}" class="dot__link dot__link--${dots[favorite[e]].branch} favorite__link" onclick="showDot('${favorite[e]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[e]].title}</h3><p class="dot__item_id">${favorite[e]}</p></a>`,favoriteList.appendChild(t)}function showFavorite(){favoriteEl.classList.add("favorite--opened")}function hideFavorite(){favoriteEl.classList.remove("favorite--opened")}function changeFavoriteStatus(e,t){const s=favorite.findIndex(e=>e===t);if(-1!==s){favorite.splice(s,1);let a=document.querySelector(`.favorite__link[href="#${t}"]`);a&&a.parentNode.remove(),e.classList.remove("isFavorite")}else{e.classList.add("isFavorite"),favorite.push(t);const s=document.createElement("li");s.classList.add("dot__item"),s.innerHTML=`<a href="#${t}" class="dot__link dot__link--${dots[t].branch} favorite__link" onclick="showDot('${t}'); unfocusSearch()"><h3 class="dot__item_title">${dots[t].title}</h3><p class="dot__item_id">${t}</p></a>`,document.querySelector(".favorite__list")&&document.querySelector(".favorite__list").appendChild(s)}localStorage.setItem("favorite",favorite.join("}{"))}
+const 
+	map =
+	{
+		el: document.getElementById('map'),
+		wrapper: document.getElementById('mapWrapper'),
+		scale: 0.5,
+		x: 0,
+		z: 0,
+		savedX: 0,
+		savedZ: 0 
+	},
+	info =
+	{
+		el: document.getElementsByClassName('info')[0],
+		closeBtn: document.getElementById('infoCloseBtn'),
+		openBtn: document.getElementById('infoOpenBtn'),
+		currentState: 0
+	},
+	html = document.documentElement;
+
+let favorite = (localStorage.getItem("favorite") || "").split("}{")
+let dotEls = document.getElementsByClassName('dot')
+let dots = {loadedInfo: []}
+
+for (let i = 0; i < dotEls.length; i++)	
+{
+	const id = dotEls[i].getAttribute("href").slice(1)
+	dots[id] =
+	{
+		title: dotEls[i].title,
+		el: dotEls[i], 
+		loadedImages: [],
+		selectedImage: 0
+	}
+	let branch = ""
+	if (dotEls[i].classList.contains("dot--red")) {branch = "red"}
+	if (dotEls[i].classList.contains("dot--green")) {branch = "green"}
+	if (dotEls[i].classList.contains("dot--blue")) {branch = "blue"}
+	if (dotEls[i].classList.contains("dot--yellow")) {branch = "yellow"}
+	dots[id].branch = branch
+
+	dots[id].x = dotEls[i].style.left.replace(/calc\(/g, '').replace(/rem \+ 50%\)/g, '') * 20
+	dots[id].z = dotEls[i].style.top.replace(/calc\(/g, '').replace(/rem \+ 50%\)/g, '') * 20
+}
+
+let darkTheme = localStorage.getItem("darkTheme")
+if (darkTheme == "true")
+	{html.classList.add("dark")}
+
+function switchTheme()
+{
+	html.classList.toggle("dark")
+	html.classList.add("theme-in-transition")
+	setTimeout(function()
+		{html.classList.remove("theme-in-transition")}, 500)
+	if (darkTheme == "true")
+		{localStorage.setItem("darkTheme", "false")}
+	else
+		{localStorage.setItem("darkTheme", "true")}
+}
+
+let selectedDot = "hub";
+showInfo(selectedDot)
+for (let i = 0; i < dotEls.length; i++)
+{
+	dotEls[i].addEventListener("click", function(e)
+	{
+		const id = dotEls[i].getAttribute("href").slice(1)
+		dots[selectedDot].el.classList.remove("selected")
+		dots[id].el.classList.add("selected")
+
+		hideInfo(selectedDot)
+		showInfo(id)
+
+		if (selectedDot == id)
+			{updateInfo(1, "+")}
+		if (selectedDot != id)
+			{updateInfo(1, "=")}
+		showImage(id, 0)
+		selectedDot = id
+	})
+}
+function showImage(id, i)
+{
+	if (images[id] && !dots[id].loadedImages.includes(i))
+	{
+		dots[id].loadedImages.push(i)
+		dots[id].imageBlock.innerHTML += images[id][i]
+	}
+	if (dots[id].imageBlock)
+	{
+		dots[id].imageBlock.children[i].style.opacity = "1"
+		dots[id].imageBlock.children[i].style.zIndex = "1"
+	}
+}
+function hideImage(id, i)
+{
+	if (dots[id].imageBlock)
+	{
+		dots[id].imageBlock.children[i].style.opacity = "0"
+		dots[id].imageBlock.children[i].style.zIndex = "0"	
+	}
+}
+
+const scaleRange = document.getElementById('scaleRange')
+scaleRange.value = map.scale
+function changeScale(e)
+{
+	map.scale = parseFloat(scaleRange.value)
+	scaleMap()
+}
+
+// Input handler
+let fingers = []
+let prevDiff = 0
+map.wrapper.addEventListener("pointerdown", function(e)
+{
+	fingers.push(e)
+	let isNotZoom = true;
+	let shiftX = e.pageX - map.x
+	let shiftY = e.pageY - map.z
+
+	map.wrapper.style.cursor = "move"
+
+	map.wrapper.addEventListener("pointermove", function(e)
+	{
+		for (let i = 0; i < fingers.length; i++)
+		{
+			if (e.pointerId === fingers[i].pointerId)
+				{fingers[i] = e}
+		}
+
+		// Swipe
+		if (fingers.length == 1 && isNotZoom)
+		{
+			map.x = e.pageX - shiftX
+			map.z = e.pageY - shiftY
+			moveMap()
+		}
+		// Zoom
+		else if (fingers.length == 2)
+		{
+			isNotZoom = false
+			const curDiff = Math.abs(
+				fingers[0].clientY - fingers[1].clientY
+			)
+			if (prevDiff > 0)
+			{
+				map.scale += (curDiff - prevDiff) / 100
+			}
+			prevDiff = curDiff;
+			scaleMap()
+		}
+	},
+	{passive: true})
+	map.wrapper.addEventListener("pointerup", pointerUp,
+		{passive: true})
+	map.wrapper.addEventListener("pointerenter", pointerUp,
+		{passive: true})
+	function pointerUp(e)
+	{
+		for (let i = 0; i < fingers.length; i++)
+		{
+			if (e.pointerId === fingers[i].pointerId)
+				{fingers.splice(i, 1)}
+		}
+		map.wrapper.style.cursor = "default"
+		if (fingers.length < 1)
+		{
+			map.wrapper.addEventListener("pointermove", null,
+				{passive: true})
+			map.wrapper.addEventListener("pointerup", null,
+				{passive: true})
+			prevDiff = 0
+		}
+	}
+},
+{passive: true})
+
+// Scaling
+map.wrapper.addEventListener("mousewheel", function(e)
+{
+	map.el.style.transition = "none"
+	let delta = e.deltaY || e.detail || e.wheelDelta
+	map.scale += (delta < 0) ? 0.05 : -0.05
+	map.el.style.transition = "transform 0.1s linear"
+	scaleMap()
+	setTimeout(function()
+		{map.el.style.transition = "transform 0s linear"}, 250)
+},
+{passive: true})
+
+// toDefault
+function toDefault(e)
+{
+	map.scale = 0.5
+	map.x = 0
+	map.z = 0
+	map.el.style.transition = "transform 0.25s linear"
+	moveMap()
+	setTimeout(function()
+		{map.el.style.transition = "transform 0s linear"}, 250)
+}
+
+function updateInfo(n, mode="=")
+{
+	const classes = ["a", "b", "c"]
+	info.el.classList.remove(classes[info.currentState])
+	info.closeBtn.classList.remove(classes[info.currentState])
+	info.openBtn.classList.remove(classes[info.currentState])
+
+
+	if (mode == "=")
+		{info.currentState = n}
+	if (mode == "+")
+		{info.currentState += n}
+
+	if (info.currentState < 0)
+		{info.currentState = 0}
+	if (info.currentState >= classes.length)
+		{info.currentState = classes.length - 1}
+
+	info.el.classList.add(classes[info.currentState])
+	info.closeBtn.classList.add(classes[info.currentState])
+	info.openBtn.classList.add(classes[info.currentState])
+}
+
+function scaleMap()
+{
+	if (map.scale > 2)
+		{map.scale = 2}
+	if (map.scale < 0.1)
+		{map.scale = 0.1}
+	map.el.style.transform = `translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`
+	scaleRange.value = map.scale
+	map.x = map.scale * map.savedX
+	map.z = map.scale * map.savedZ
+}
+function moveMap()
+{
+	map.savedX = map.x / map.scale
+	map.savedZ = map.z / map.scale
+	map.el.style.transformOrigin = `calc(50% - ${map.savedX}px) calc(50% - ${map.savedZ}px)`
+	map.el.style.transform = `translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`
+}
+
+
+info.el.addEventListener("click", function(e)
+	{updateInfo(1, "+")},
+{passive: true})
+const court = ""
+function showDot(id, trs=true)
+{
+	if (id != "")
+	{
+		dots[id].el.click()
+		map.x = -dots[id].x * 1.4
+		map.z = -dots[id].z * 1.4
+		map.scale = 1.75
+		if (trs) {map.el.style.transition = "all 0.25s linear"}
+		moveMap()
+		if (trs) {setTimeout(function() {map.el.style.transition = "all 0s linear"}, 250)}
+	}
+}
+
+function next(el)
+{
+	const id = el.parentNode.id
+	const ch = el.children
+
+	hideImage(id, dots[id].selectedImage)
+	dots[id].selectedImage = (dots[id].selectedImage + 1) % images[id].length
+	showImage(id, dots[id].selectedImage)
+}
+function openInfo()
+{
+	showImage("hub", dots.hub.selectedImage)
+	updateInfo(1)
+}
+
+function showInfo(id)
+{
+	if (!dots.loadedInfo.includes(id))
+	{
+		const el = document.createElement("script")
+		el.src = `info/${id}.js`
+		el.async = "true"
+		document.body.appendChild(el)
+		dots[id].info = document.getElementById(id)
+		dots[id].imageBlock = dots[id].info.getElementsByClassName("info__image")[0]
+
+		el.onload = () => {
+			if(!favorite) { favorite = localStorage.getItem("favorite").split("}{") || [] }
+			if (favorite.includes(id)) { document.querySelector(`#${id} .btn--favoriteStatus`).classList.add("isFavorite") }
+		}
+
+	}
+	if (dots[id].info)
+	{
+		dots[id].info.style.opacity = "1"
+		dots[id].info.style.zIndex = "1"
+	}
+}
+function hideInfo(id)
+{
+	if (dots[id].info)
+	{
+		dots[id].info.style.opacity = "0"
+		dots[id].info.style.zIndex = "0"
+	}
+}
+
+const hash = document.location.hash.slice(1)
+if (hash && dots[hash]){showDot(hash, false)}
+
+
+const searchList = document.querySelector(".search__list")
+function search(el)
+{
+	const results = [], value = el.value.toLowerCase()
+	while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
+	if (value == "") {return}
+	for (const key in dots)
+	{
+		dot = dots[key]
+		if (results.length > 10) {break}
+		if (dot.title)
+		{
+			if (dot.title.toLowerCase() != "портал в энд" && dot.title.toLowerCase().search(value) > -1) {results.push(key)}
+		}
+	}
+	for (let i = 0; i < results.length; i++)
+	{
+		const item = document.createElement("li")
+		item.classList.add("dot__item")
+		item.classList.add("search__item")
+
+		item.innerHTML = `<a href="#${results[i]}" class="dot__link dot__link--${dots[results[i]].branch}" onclick="showDot('${results[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[results[i]].title}</h3><p class="dot__item_id">${results[i]}</p></a>`
+		searchList.appendChild(item)
+	}
+}
+function unfocusSearch() {
+	while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
+	document.querySelector(".search__input").value = ""
+}
+function getDist(id1, id2) {
+	dist = 0
+	if (id1 != id2) {
+		if (
+			(
+				(dots[id1].branch == "yellow" && dots[id2].branch == "red") || 
+				(dots[id2].branch == "yellow" && dots[id1].branch == "red")
+			) ||
+			(
+				(dots[id1].branch == "blue" && dots[id2].branch == "green") || 
+				(dots[id2].branch == "blue" && dots[id1].branch == "green")
+			) ||
+				(dots[id1].branch == dots[id2].branch)
+		) {
+			if (dots[id1].branch == "yellow" || dots[id1].branch == "red") {
+				dist = Math.abs(dots[id1].z - dots[id2].z) + Math.abs(dots[id1].x) + Math.abs(dots[id2].x)
+			}
+			else {
+				dist = Math.abs(dots[id1].x - dots[id2].x) + Math.abs(dots[id1].z) + Math.abs(dots[id2].z)
+			}
+		}
+		else {
+			dist = Math.abs(dots[id1].x) + Math.abs(dots[id2].x) + Math.abs(dots[id1].z) + Math.abs(dots[id2].z)
+		}
+	}
+	return dist
+}
+
+const calculator = document.getElementById("calculator")
+function showCalculator() {
+	calculator.classList.add("calculator--opened")
+}
+function hideCalculator() {
+	calculator.classList.remove("calculator--opened")
+	document.querySelector(".calculator__result_dots").innerHTML = ""
+	document.querySelector(".calculator__result_dist").innerHTML = ""
+	document.querySelector(".calculator__result_time").innerHTML = ""
+}
+
+const calcInputs = document.getElementsByClassName("calculator__input")
+function calcDist() {
+	const 
+		first = calcInputs[0].value.toLowerCase(),
+		second = calcInputs[1].value.toLowerCase()
+
+	if (first == "" || second == "")
+	{
+		document.querySelector(".calculator__result_dots").innerHTML = ""
+		document.querySelector(".calculator__result_dist").innerHTML = ""
+		document.querySelector(".calculator__result_time").innerHTML = ""
+		return
+	}
+
+	const results = []
+	for (const key in dots)
+	{
+		dot = dots[key]
+		if (results.length > 2) {break}
+		if (dot.title)
+		{
+			if (dot.title.toLowerCase() != "портал в энд" && dot.title.toLowerCase().search(first) > -1) {results.push(key)}
+			if (dot.title.toLowerCase() != "портал в энд" && dot.title.toLowerCase().search(second) > -1) {results.push(key)}
+		}
+	}
+	if (dots[results[0]] && dots[results[1]]) {
+		document.querySelector(".calculator__result_dots").innerHTML = `<a class="calculator__result_link" onclick="showDot('${results[0]}')">${dots[results[0]].title}</a> — <a class="calculator__result_link" onclick="showDot('${results[1]}')">${dots[results[1]].title}</a>`
+		const dist = getDist(results[0], results[1])
+		document.querySelector(".calculator__result_dist").innerHTML = `${dist} блоков`
+		document.querySelector(".calculator__result_time").innerHTML = `${Math.round(dist / 35)} секунд`
+	}
+}
+
+let favoriteEl = document.querySelector(".favorite")
+let favoriteList = document.querySelector(".favorite__list")
+
+for (let i = 0; i < favorite.length; i++)
+{
+	if (dots[favorite[i]]) {
+		const item = document.createElement("li")
+		item.classList.add("dot__item")
+		item.classList.add("favorite__item")
+
+		item.innerHTML = `<a href="#${favorite[i]}" class="dot__link dot__link--${dots[favorite[i]].branch} favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a>`
+
+		favoriteList.appendChild(item)
+	}
+}
+
+function showFavorite() {	favoriteEl.classList.add("favorite--opened") }
+function hideFavorite() {	favoriteEl.classList.remove("favorite--opened") }
+
+function changeFavoriteStatus(el, id) {
+	const index = favorite.findIndex(f => f === id)
+	if (index !== -1) {
+		favorite.splice(index, 1)
+		let link = document.querySelector(`.favorite__link[href="#${id}"]`)
+		if (link) {
+			link.parentNode.remove()
+		}
+		el.classList.remove("isFavorite")
+	} 
+	else {
+		el.classList.add("isFavorite") 
+		favorite.push(id)
+
+		const item = document.createElement("li")
+		item.classList.add("dot__item")
+		item.innerHTML = `<a href="#${id}" class="dot__link dot__link--${dots[id].branch} favorite__link" onclick="showDot('${id}'); unfocusSearch()"><h3 class="dot__item_title">${dots[id].title}</h3><p class="dot__item_id">${id}</p></a>`
+		if (document.querySelector(".favorite__list")) document.querySelector(".favorite__list").appendChild(item)
+	}
+	localStorage.setItem("favorite", favorite.join("}{"))
+}
