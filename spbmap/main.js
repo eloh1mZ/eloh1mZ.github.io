@@ -311,6 +311,10 @@ function hideInfo(id)
 	}
 }
 
+if(!favorite) { 
+	favorite = localStorage.getItem("favorite").split("}{") || []
+}
+
 const hash = document.location.hash.slice(1)
 if (hash && dots[hash]){showDot(hash, false)}
 
@@ -416,24 +420,51 @@ function calcDist() {
 	}
 }
 
-let favoriteEl = document.querySelector(".favorite")
-let favoriteList = document.querySelector(".favorite__list")
+let favoriteEl, favoriteList
 
-for (let i = 0; i < favorite.length; i++) {
-	if (dots[favorite[i]]) {
-		const item = document.createElement("li")
-		item.classList.add("dot__item")
-		item.classList.add("favorite__item")
-		item.classList.add(`dot__item--${dots[favorite[i]].branch}`)
+window.onload = () => {
+	favoriteEl = document.querySelector(".favorite")
+	favoriteList = document.querySelector(".favorite__list")
 
-		item.innerHTML = `<a href="#${favorite[i]}" class="favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a>`
+	for (let i = 0; i < favorite.length; i++) {
+		if (dots[favorite[i]]) {
+			const item = document.createElement("li")
+			item.classList.add("dot__item")
+			item.classList.add("favorite__item")
+			item.classList.add(`dot__item--${dots[favorite[i]].branch}`)
 
-		favoriteList.appendChild(item)
+			item.innerHTML = `<a href="#${favorite[i]}" class="favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a><button class="favorite__btn" onclick="removeFavorite('${favorite[i]}')">&times;</button>`
+
+			if (i == 0) { document.querySelector("#favoriteBtn").style.display = "block" }
+
+			favoriteList.appendChild(item)
+		}
+		else { removeFavorite(favorite[i]) }
 	}
+	if (!favorite.length) { document.querySelector("#favoriteBtn").style.display = "none" }
 }
 
-function showFavorite() {	favoriteEl.classList.add("favorite--opened") }
-function hideFavorite() {	favoriteEl.classList.remove("favorite--opened") }
+function showFavorite() {
+	if (favoriteEl) { favoriteEl.classList.add("favorite--opened") }	
+}
+function hideFavorite() {
+	if (favoriteEl) { favoriteEl.classList.remove("favorite--opened") }
+}
+
+function removeFavorite(id) {
+	const index = favorite.findIndex(f => f === id)
+	if (index !== -1) {
+		favorite.splice(index, 1)
+		if (id.length) {
+			const link = document.querySelector(`.favorite__link[href="#${id}"]`)
+			if (link) { link.parentNode.remove() }
+			
+			const el = document.querySelector("#" + id + " .isFavorite")
+			if (el) { el.classList.remove("isFavorite") }
+		}
+	}
+	localStorage.setItem("favorite", favorite.join("}{"))
+}
 
 function changeFavoriteStatus(el, id) {
 	const index = favorite.findIndex(f => f === id)
@@ -443,15 +474,19 @@ function changeFavoriteStatus(el, id) {
 		if (link) {
 			link.parentNode.remove()
 		}
-		el.classList.remove("isFavorite")
+		if (el) { el.classList.remove("isFavorite") }
 	} 
 	else {
-		el.classList.add("isFavorite") 
+		if (el) { el.classList.add("isFavorite") }
 		favorite.push(id)
+		document.querySelector("#favoriteBtn").style.display = "block"
 
 		const item = document.createElement("li")
 		item.classList.add("dot__item")
-		item.innerHTML = `<a href="#${id}" class="dot__link dot__link--${dots[id].branch} favorite__link" onclick="showDot('${id}'); unfocusSearch()"><h3 class="dot__item_title">${dots[id].title}</h3><p class="dot__item_id">${id}</p></a>`
+		item.classList.add("favorite__item")
+		
+		item.classList.add(`dot__item--${dots[id].branch}`)
+		item.innerHTML = `<a href="#${id}" class="dot__link favorite__link" onclick="showDot('${id}'); unfocusSearch()"><h3 class="dot__item_title">${dots[id].title}</h3><p class="dot__item_id">${id}</p></a><button class="favorite__btn" onclick="removeFavorite('${id}')">&times;</button>`
 		if (document.querySelector(".favorite__list")) document.querySelector(".favorite__list").appendChild(item)
 	}
 	localStorage.setItem("favorite", favorite.join("}{"))
