@@ -37,6 +37,8 @@ for (let i = 0; i < dotEls.length; i++)
   if (dotEls[i].classList.contains("dot--green")) {branch = "green"}
   if (dotEls[i].classList.contains("dot--blue")) {branch = "blue"}
   if (dotEls[i].classList.contains("dot--yellow")) {branch = "yellow"}
+  if (dotEls[i].classList.contains("dot--tint")) {branch = "tint"}
+  if (dotEls[i].classList.contains("dot--purple")) {branch = "purple"}
   dots[id].branch = branch
 
   dots[id].x = dotEls[i].style.left.replace(/calc\(/g, '').replace(/rem \+ 50%\)/g, '') * 20
@@ -310,3 +312,32 @@ function hideInfo(id)
 
 const hash = document.location.hash.slice(1)
 if (hash && dots[hash]){showDot(hash, false)}
+
+const searchList = document.querySelector(".search__list")
+function search(el)
+{
+  const results = [], value = el.value.toLowerCase()
+  while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
+  if (value == "") {return}
+  for (const key in searchObj) {
+    if (results.length > 10) {break}
+    if (key.toLowerCase().search(value) > -1) {
+      searchObj[key].forEach(d => {
+        results.push({key, d})
+      })
+    }
+  }
+  for (let i = 0; i < results.length; i++)
+  {
+    const item = document.createElement("li")
+    item.classList.add("dot__item")
+    item.classList.add("search__item")
+
+    item.innerHTML = `<a href="#${results[i].d}" class="dot__link dot__link--${dots[results[i].d].branch}" onclick="showDot('${results[i].d}'); unfocusSearch()"><h3 class="dot__item_title">Палатка ${dots[results[i].d].title}</h3><p class="dot__item_id">${results[i].key}</p></a>`
+    searchList.appendChild(item)
+  }
+}
+function unfocusSearch() {
+  while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
+  document.querySelector(".search__input").value = ""
+}

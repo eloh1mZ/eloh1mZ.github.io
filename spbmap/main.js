@@ -249,6 +249,7 @@ info.el.addEventListener("click", function(e)
 	{updateInfo(1, "+")},
 {passive: true})
 const court = ""
+if (!court.length) {document.querySelector("#courtBtn").style.display = "none"}
 function showDot(id, trs=true)
 {
 	if (id != "")
@@ -418,14 +419,14 @@ function calcDist() {
 let favoriteEl = document.querySelector(".favorite")
 let favoriteList = document.querySelector(".favorite__list")
 
-for (let i = 0; i < favorite.length; i++)
-{
+for (let i = 0; i < favorite.length; i++) {
 	if (dots[favorite[i]]) {
 		const item = document.createElement("li")
 		item.classList.add("dot__item")
 		item.classList.add("favorite__item")
+		item.classList.add(`dot__item--${dots[favorite[i]].branch}`)
 
-		item.innerHTML = `<a href="#${favorite[i]}" class="dot__link dot__link--${dots[favorite[i]].branch} favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a>`
+		item.innerHTML = `<a href="#${favorite[i]}" class="favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a>`
 
 		favoriteList.appendChild(item)
 	}
@@ -454,4 +455,25 @@ function changeFavoriteStatus(el, id) {
 		if (document.querySelector(".favorite__list")) document.querySelector(".favorite__list").appendChild(item)
 	}
 	localStorage.setItem("favorite", favorite.join("}{"))
+}
+
+const menu = document.querySelector(".menu")
+function showMenu() {
+	menu.classList.toggle("menu--opened")
+}
+
+function changeStyle(value, type) {
+	if (!value) {
+		let style
+		if (document.querySelector(".style--"+type)) {
+			style = document.querySelector(".style--"+type)
+		} else {
+			style = document.createElement("style")
+			document.body.appendChild(style)
+		}
+		style.classList.add("style--"+type)
+		style.innerHTML = `.dot--${type}, .road--${type} {display: none}`
+	} else {
+		document.querySelector(".style--"+type).innerHTML = ""
+	}
 }
