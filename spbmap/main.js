@@ -338,9 +338,10 @@ function search(el)
 	{
 		const item = document.createElement("li")
 		item.classList.add("dot__item")
+		item.classList.add(`dot__item--${dots[results[i]].branch}`)
 		item.classList.add("search__item")
 
-		item.innerHTML = `<a href="#${results[i]}" class="dot__link dot__link--${dots[results[i]].branch}" onclick="showDot('${results[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[results[i]].title}</h3><p class="dot__item_id">${results[i]}</p></a>`
+		item.innerHTML = `<a href="#${results[i]}" class="dot__link search__link" onclick="showDot('${results[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[results[i]].title}</h3><p class="dot__item_id">${results[i]}</p></a>`
 		searchList.appendChild(item)
 	}
 }
@@ -511,4 +512,16 @@ function changeStyle(value, type) {
 	} else {
 		document.querySelector(".style--"+type).innerHTML = ""
 	}
+}
+
+let events = document.querySelector(".events")
+function showEvents() {
+	if (!events) { events = document.querySelector(".events") }
+	menu.classList.remove('menu--opened')
+	events.classList.add("events--opened")
+}
+
+function eventsShowDot(id) {
+	showDot(id)
+	events.classList.remove('events--opened')
 }

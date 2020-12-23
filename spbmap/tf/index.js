@@ -333,7 +333,9 @@ function search(el)
     item.classList.add("dot__item")
     item.classList.add("search__item")
 
-    item.innerHTML = `<a href="#${results[i].d}" class="dot__link dot__link--${dots[results[i].d].branch}" onclick="showDot('${results[i].d}'); unfocusSearch()"><h3 class="dot__item_title">Палатка ${dots[results[i].d].title}</h3><p class="dot__item_id">${results[i].key}</p></a>`
+    // console.log(results[i])
+
+    item.innerHTML = `<a href="#${results[i].d.id}" class="dot__link dot__link--${dots[results[i].d.id].branch}" onclick="showDot('${results[i].d.id}'); unfocusSearch()"><h3 class="dot__item_title">Палатка ${dots[results[i].d.id].title}</h3><p class="dot__item_id">${results[i].key} — ${results[i].d.price}</p></a>`
     searchList.appendChild(item)
   }
 }
