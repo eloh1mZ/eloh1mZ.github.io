@@ -1,5 +1,5 @@
 const
-	court = "putinburg"
+	court = ""
 	map =
 	{
 		el: document.getElementById('map'),
