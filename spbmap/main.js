@@ -1,4 +1,5 @@
-const 
+const
+	court = "putinburg"
 	map =
 	{
 		el: document.getElementById('map'),
@@ -245,10 +246,7 @@ function moveMap()
 }
 
 
-info.el.addEventListener("click", function(e)
-	{updateInfo(1, "+")},
-{passive: true})
-const court = ""
+info.el.addEventListener("click", function(e) {updateInfo(1, "+")}, {passive: true})
 if (!court.length) {document.querySelector("#courtBtn").style.display = "none"}
 function showDot(id, trs=true)
 {
