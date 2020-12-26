@@ -1,5 +1,6 @@
 const
-	court = ""
+	court = "",
+	scaleSensitivity = 3,
 	map =
 	{
 		el: document.getElementById('map'),
@@ -146,9 +147,7 @@ map.wrapper.addEventListener("pointerdown", function(e)
 				fingers[0].clientY - fingers[1].clientY
 			)
 			if (prevDiff > 0)
-			{
-				map.scale += (curDiff - prevDiff) / 100
-			}
+			{ map.scale += (curDiff - prevDiff) / (scaleSensitivity * 100) }
 			prevDiff = curDiff;
 			scaleMap()
 		}
@@ -254,7 +253,7 @@ function showDot(id, trs=true)
 	{
 		dots[id].el.click()
 		map.x = -dots[id].x * 1.4
-		map.z = -dots[id].z * 1.4
+		map.z = -dots[id].z * 1.4 - 100
 		map.scale = 1.75
 		if (trs) {map.el.style.transition = "all 0.25s linear"}
 		moveMap()
@@ -419,29 +418,6 @@ function calcDist() {
 	}
 }
 
-let favoriteEl, favoriteList
-
-window.onload = () => {
-	favoriteEl = document.querySelector(".favorite")
-	favoriteList = document.querySelector(".favorite__list")
-
-	for (let i = 0; i < favorite.length; i++) {
-		if (dots[favorite[i]]) {
-			const item = document.createElement("li")
-			item.classList.add("dot__item")
-			item.classList.add("favorite__item")
-			item.classList.add(`dot__item--${dots[favorite[i]].branch}`)
-
-			item.innerHTML = `<a href="#${favorite[i]}" class="favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a><button class="favorite__btn" onclick="removeFavorite('${favorite[i]}')">&times;</button>`
-
-			if (i == 0) { document.querySelector("#favoriteBtn").style.display = "block" }
-
-			favoriteList.appendChild(item)
-		}
-		else { removeFavorite(favorite[i]) }
-	}
-	if (!favorite.length) { document.querySelector("#favoriteBtn").style.display = "none" }
-}
 
 function showFavorite() {
 	if (favoriteEl) { favoriteEl.classList.add("favorite--opened") }	
@@ -512,14 +488,81 @@ function changeStyle(value, type) {
 	}
 }
 
-let events = document.querySelector(".events")
-function showEvents() {
-	if (!events) { events = document.querySelector(".events") }
+function openPopup(id) {
+	popup = document.querySelector("." + id)
 	menu.classList.remove('menu--opened')
-	events.classList.add("events--opened")
+	popup.classList.add("popup--opened")
 }
 
 function eventsShowDot(id) {
 	showDot(id)
-	events.classList.remove('events--opened')
+	document.querySelector(".events").classList.remove('popup--opened')
+}
+
+function closePopup(el) { el.parentNode.classList.remove('popup--opened') }
+
+
+function loadStyle(id) {
+	let link = document.createElement("link")
+	link.rel = "stylesheet"
+	link.href = "./style/" + id +".css" 
+	link.classList.add("style--" + id)
+	document.head.appendChild(link)
+}
+
+function unloadStyle(id) {
+	const link = document.querySelector(".style--" + id)
+	if (link) { link.remove()	}
+}
+
+let styles = {
+	hat: localStorage.getItem("hat") || "true",
+	lollipop: localStorage.getItem("lollipop") || "true"
+}
+function changeXMAS(value, id) {
+	if (id == "hat" || id == "lollipop") {
+		if (!styles[id]) { styles[id] = localStorage.getItem(id) || "true" }
+
+		if (value) { loadStyle(id) }
+		else { unloadStyle(id) }
+
+		localStorage.setItem(id, value)
+	}
+}
+
+
+let favoriteEl, favoriteList
+window.onload = () => {
+	favoriteEl = document.querySelector(".favorite")
+	favoriteList = document.querySelector(".favorite__list")
+
+	for (let i = 0; i < favorite.length; i++) {
+		if (dots[favorite[i]]) {
+			const item = document.createElement("li")
+			item.classList.add("dot__item")
+			item.classList.add("favorite__item")
+			item.classList.add(`dot__item--${dots[favorite[i]].branch}`)
+
+			item.innerHTML = `<a href="#${favorite[i]}" class="favorite__link" onclick="showDot('${favorite[i]}'); unfocusSearch()"><h3 class="dot__item_title">${dots[favorite[i]].title}</h3><p class="dot__item_id">${favorite[i]}</p></a><button class="favorite__btn" onclick="removeFavorite('${favorite[i]}')">&times;</button>`
+
+			if (i == 0) { document.querySelector("#favoriteBtn").style.display = "block" }
+
+			favoriteList.appendChild(item)
+		}
+		else { removeFavorite(favorite[i]) }
+	}
+	if (!favorite.length) { document.querySelector("#favoriteBtn").style.display = "none" }
+
+	if (!styles.hat) { styles.hat = localStorage.getItem("hat") || "true" }
+	if (styles.hat == "true") {
+		document.querySelector(".style__trigger-hat").checked = true
+		loadStyle("hat")
+	}
+
+	if (!styles.lollipop) { styles.lollipop = localStorage.getItem("lollipop") || "true" }
+	if (styles.lollipop == "true") {
+		document.querySelector(".style__trigger-lollipop").checked = true
+		loadStyle("lollipop")
+	}
+	loadStyle("font")
 }

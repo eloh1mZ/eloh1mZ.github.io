@@ -1,4 +1,5 @@
 const 
+  scaleSensitivity = 3,
   map =
   {
     el: document.getElementById('map'),
@@ -147,10 +148,7 @@ map.wrapper.addEventListener("pointerdown", function(e)
       const curDiff = Math.abs(
         fingers[0].clientY - fingers[1].clientY
       )
-      if (prevDiff > 0)
-      {
-        map.scale += (curDiff - prevDiff) / 100
-      }
+      if (prevDiff > 0) { map.scale += (curDiff - prevDiff) / (scaleSensitivity * 100) }
       prevDiff = curDiff;
       scaleMap()
     }
@@ -332,9 +330,6 @@ function search(el)
     const item = document.createElement("li")
     item.classList.add("dot__item")
     item.classList.add("search__item")
-
-    // console.log(results[i])
-
     item.innerHTML = `<a href="#${results[i].d.id}" class="dot__link dot__link--${dots[results[i].d.id].branch}" onclick="showDot('${results[i].d.id}'); unfocusSearch()"><h3 class="dot__item_title">Палатка ${dots[results[i].d.id].title}</h3><p class="dot__item_id">${results[i].key} — ${results[i].d.price}</p></a>`
     searchList.appendChild(item)
   }
@@ -342,4 +337,22 @@ function search(el)
 function unfocusSearch() {
   while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
   document.querySelector(".search__input").value = ""
+}
+
+function loadStyle(id) {
+  let link = document.createElement("link")
+  link.rel = "stylesheet"
+  link.href = "../style/" + id +".css" 
+  link.classList.add("style--" + id)
+  document.head.appendChild(link)
+}
+
+let styles = {
+  hat: localStorage.getItem("hat") || "true"
+}
+
+window.onload = function() {
+  if (!styles.hat) { styles.hat = localStorage.getItem("hat") || "true" }
+  if (styles.hat == "true") { loadStyle("hat") }
+  loadStyle("font")
 }
