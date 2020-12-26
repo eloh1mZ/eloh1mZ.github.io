@@ -317,9 +317,11 @@ if (hash && dots[hash]){showDot(hash, false)}
 
 
 const searchList = document.querySelector(".search__list")
+let results = []
 function search(el)
 {
-	const results = [], value = el.value.toLowerCase()
+	results.forEach(d => { dots[d].el.classList.remove("dot--search") })
+	results = [], value = el.value.toLowerCase()
 	while (searchList.firstChild) {searchList.removeChild(searchList.firstChild)}
 	if (value == "") {return}
 	for (const key in dots)
@@ -333,6 +335,7 @@ function search(el)
 	}
 	for (let i = 0; i < results.length; i++)
 	{
+		dots[results[i]].el.classList.add("dot--search")
 		const item = document.createElement("li")
 		item.classList.add("dot__item")
 		item.classList.add(`dot__item--${dots[results[i]].branch}`)

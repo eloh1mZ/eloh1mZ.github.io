@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="shower/themes/ribbon/styles/styles.css">
 	<style>
+		.shower {
+       --slide-ratio: calc(4 / 3);
+    }
 		.blur {
 			background-color: #0008;
 			padding: .5em;
@@ -22,8 +25,8 @@
 		}
 		.nomark:after {opacity: 0;}
 		.cover {
-			width: 100%;
-			max-height: none;
+			max-width: none;
+			height: 100%;
 		}
 		.progress::before {
 			background-color: #0008;
