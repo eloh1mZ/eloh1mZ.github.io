@@ -74,11 +74,11 @@ function submit() {
 
     if (inputs.description.value != "")
     {
-      result += `    "description": "${inputs.description.value.replace(/\n/g, "<br>").replace(/"([^"]*)"/g, '«$1»').replace(/(^\s*)|(\s*)$/g, '')}",\n`
+      result += `    "description": "${inputs.description.value.replace(/\n/g, ",").replace(/"([^"]*)"/g, '«$1»').replace(/(^\s*)|(\s*)$/g, '')}",\n`
     }
     if (inputs.pictures.checked) {result += `    "pictures": "true",\n`}
     result += "}"
-    result = result.replace(",\n}", "\n}")
+    result = result.replace(",\n}", "\n}").replace(",,", ",")
 
     copy(result)
     const btn = document.getElementById('btn')
