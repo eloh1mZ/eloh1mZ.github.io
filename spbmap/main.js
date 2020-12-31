@@ -182,7 +182,7 @@ map.wrapper.addEventListener("mousewheel", function(e)
 {
 	map.el.style.transition = "none"
 	let delta = e.deltaY || e.detail || e.wheelDelta
-	map.scale += (delta < 0) ? 0.05 : -0.05
+	map.scale += ((delta < 0) ? 0.05 : -0.05) * map.scale 
 	map.el.style.transition = "transform 0.1s linear"
 	scaleMap()
 	setTimeout(function()
@@ -227,8 +227,8 @@ function updateInfo(n, mode="=")
 
 function scaleMap()
 {
-	if (map.scale > 2)
-		{map.scale = 2}
+	if (map.scale > 4)
+		{map.scale = 4}
 	if (map.scale < 0.1)
 		{map.scale = 0.1}
 	map.el.style.transform = `translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`
