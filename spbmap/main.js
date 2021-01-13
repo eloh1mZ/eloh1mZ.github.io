@@ -1,5 +1,5 @@
 const
-	court = "infernia",
+	court = "berlin",
 	scaleSensitivity = 3,
 	map =
 	{
