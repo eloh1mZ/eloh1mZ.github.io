@@ -1,5 +1,5 @@
 const
-	court = "lightearth",
+	court = "",
 	scaleSensitivity = 3,
 	map =
 	{
