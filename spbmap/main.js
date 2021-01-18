@@ -22,13 +22,12 @@ const
 
 let favorite = (localStorage.getItem("favorite") || "").split("}{")
 let dotEls = document.getElementsByClassName('dot')
-let dots = {loadedInfo: []}
+let dots = {}
 
 for (let i = 0; i < dotEls.length; i++)	
 {
 	const id = dotEls[i].getAttribute("href").slice(1)
-	dots[id] =
-	{
+	dots[id] = {
 		title: dotEls[i].title,
 		el: dotEls[i], 
 		loadedImages: [],
@@ -278,7 +277,7 @@ function openInfo()
 
 function showInfo(id)
 {
-	if (!dots.loadedInfo.includes(id))
+	if (!document.querySelector(`script[src="info/${id}.js"]`))
 	{
 		const el = document.createElement("script")
 		el.src = `info/${id}.js`
@@ -518,18 +517,14 @@ function unloadStyle(id) {
 	if (link) { link.remove()	}
 }
 
-let styles = {
-	hat: localStorage.getItem("hat") || "true",
-	lollipop: localStorage.getItem("lollipop") || "true"
-}
 function changeXMAS(value, id) {
 	if (id == "hat" || id == "lollipop") {
-		if (!styles[id]) { styles[id] = localStorage.getItem(id) || "true" }
+		if (!styles[id]) { styles[id] = localStorage.getItem(id) || "false" }
 
 		if (value) { loadStyle(id) }
 		else { unloadStyle(id) }
 
-		localStorage.setItem(id, value)
+		// localStorage.setItem(id, value)
 	}
 }
 
@@ -556,16 +551,21 @@ window.onload = () => {
 	}
 	if (!favorite.length) { document.querySelector("#favoriteBtn").style.display = "none" }
 
-	if (!styles.hat) { styles.hat = localStorage.getItem("hat") || "true" }
-	if (styles.hat == "true") {
-		document.querySelector(".style__trigger-hat").checked = true
-		loadStyle("hat")
-	}
-
-	if (!styles.lollipop) { styles.lollipop = localStorage.getItem("lollipop") || "true" }
-	if (styles.lollipop == "true") {
-		document.querySelector(".style__trigger-lollipop").checked = true
-		loadStyle("lollipop")
-	}
+	localStorage.removeItem("hat")
+	localStorage.removeItem("lollipop")
 	loadStyle("font")
+}
+
+function updateSpoiler(el) {
+	let btn = el
+	let content = btn.nextElementSibling
+	if (btn.classList.contains('spoiler__btn--opened')) {
+		btn.classList.remove("spoiler__btn--opened")
+		content.style.height = "0"
+	} else {
+		btn.classList.remove("spoiler__btn--opened")
+		content.style.height = "0"
+		btn.classList.add('spoiler__btn--opened');
+		content.style.height = content.scrollHeight + 'px';
+	}
 }
