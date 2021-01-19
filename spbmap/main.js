@@ -1,5 +1,5 @@
 const
-	court = "",
+	court = "aksu",
 	scaleSensitivity = 3,
 	map =
 	{
