@@ -1,11 +1,12 @@
 const
-	court = "aksu",
+	court = "",
 	scaleSensitivity = 3,
+	minScale = .2, maxScale = 5,
 	map =
 	{
 		el: document.getElementById('map'),
 		wrapper: document.getElementById('mapWrapper'),
-		scale: 0.5,
+		scale: (minScale + maxScale) / 4,
 		x: 0,
 		z: 0,
 		savedX: 0,
@@ -104,6 +105,8 @@ function hideImage(id, i)
 }
 
 const scaleRange = document.getElementById('scaleRange')
+scaleRange.min = minScale
+scaleRange.max = maxScale
 scaleRange.value = map.scale
 function changeScale(e)
 {
@@ -223,13 +226,14 @@ function updateInfo(n, mode="=")
 	info.closeBtn.classList.add(classes[info.currentState])
 	info.openBtn.classList.add(classes[info.currentState])
 }
-
+function minmax(v, min, max) {
+	if (v < min) { return min }
+	if (v > max) { return max }
+	return v 
+}
 function scaleMap()
 {
-	if (map.scale > 4)
-		{map.scale = 4}
-	if (map.scale < 0.1)
-		{map.scale = 0.1}
+	map.scale = minmax(map.scale, minScale, maxScale)
 	map.el.style.transform = `translate(${map.savedX}px, ${map.savedZ}px) scale(${map.scale})`
 	scaleRange.value = map.scale
 	map.x = map.scale * map.savedX
@@ -533,6 +537,9 @@ let favoriteEl, favoriteList
 window.onload = () => {
 	favoriteEl = document.querySelector(".favorite")
 	favoriteList = document.querySelector(".favorite__list")
+
+	document.getElementById('scaleRange').value = map.scale
+	scaleMap()
 
 	for (let i = 0; i < favorite.length; i++) {
 		if (dots[favorite[i]]) {
