@@ -180,7 +180,7 @@ map.wrapper.addEventListener("pointerdown", function(e)
 {passive: true})
 
 // Scaling
-map.wrapper.addEventListener("mousewheel", function(e)
+map.wrapper.addEventListener("wheel", function(e)
 {
 	map.el.style.transition = "none"
 	let delta = e.deltaY || e.detail || e.wheelDelta
