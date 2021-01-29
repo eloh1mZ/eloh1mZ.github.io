@@ -1,5 +1,5 @@
 const
-	court = "selement",
+	court = "",
 	scaleSensitivity = 3,
 	minScale = .2, maxScale = 5,
 	map =
