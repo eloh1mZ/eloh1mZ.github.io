@@ -1,0 +1,3 @@
+outputElementForRequest.value = `{
+"type":"end","branch":"green","nether":{"x":-3315,"z":-213},"overworld":{"x":-26462,"y":32,"z":-1689},"title":"Портал"
+}`

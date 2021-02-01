@@ -1,0 +1,3 @@
+outputElementForRequest.value = `{
+"type":"publishing","title":"Издательство «Эра»","mayor":"Genuine Paragon","branch":"red","nether":{"x":15,"z":70},"description":"В данном филиале издательства вы сможете с легкостью найти себе чтиво по вкусу. Изучайте помещение и читайте пробники. Если что-то заинтересует, за покупкой полной версии обращайтесь к работникам филиала.","marks":["publishing"],"mode":"nether","pictures":"true"
+}`

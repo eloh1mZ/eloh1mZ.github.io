@@ -1,0 +1,3 @@
+outputElementForRequest.value = `{
+"type":"base","mayor":"Vernom31","branch":"blue","nether":{"x":401,"z":16},"overworld":{"x":3206,"y":72,"z":125},"title":"База Vernom31"
+}`
